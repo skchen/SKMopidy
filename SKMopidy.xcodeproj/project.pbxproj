@@ -376,6 +376,7 @@
 				823411321CCB3F4D0025A14F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		823411331CCB3F4D0025A14F /* Build configuration list for PBXNativeTarget "SKMopidyTests" */ = {
 			isa = XCConfigurationList;
@@ -384,6 +385,7 @@
 				823411351CCB3F4D0025A14F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
