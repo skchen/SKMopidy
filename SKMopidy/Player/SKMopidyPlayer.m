@@ -1,15 +1,13 @@
 //
-//  ViewController.h
-//  SKMopidyDemo
+//  SKMopidyPlayer.m
+//  SKMopidy
 //
 //  Created by Shin-Kai Chen on 2016/4/23.
 //  Copyright © 2016年 SK. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SKMopidyPlayer.h"
 
-@interface ViewController : UIViewController
-
+@implementation SKMopidyPlayer
 
 @end
-
