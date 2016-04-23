@@ -1,1 +1,4 @@
+github "hamcrest/OCHamcrest" "v5.2.0"
 github "skchen/SKUtils" "fa4da47997aced2ec179b0239afcb57e23eb957c"
+github "square/SocketRocket" "0eee9071aa8ed6f37878b390e4085dff12f94a6a"
+github "jonreid/OCMockito" "d93701ae36d35f0b77587a2f82cf03199cd753ba"

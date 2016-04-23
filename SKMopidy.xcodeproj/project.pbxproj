@@ -13,10 +13,26 @@
 		823411711CCB42540025A14F /* SKMopidyPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8234116F1CCB42540025A14F /* SKMopidyPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		823411721CCB42540025A14F /* SKMopidyPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 823411701CCB42540025A14F /* SKMopidyPlayer.m */; };
 		823411751CCB42800025A14F /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823411741CCB42800025A14F /* SKUtils.framework */; };
+		8234117E1CCB47210025A14F /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8234117D1CCB47210025A14F /* SocketRocket.framework */; };
+		823411821CCB478C0025A14F /* SKMopidyNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 823411801CCB478C0025A14F /* SKMopidyNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		823411831CCB478C0025A14F /* SKMopidyNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 823411811CCB478C0025A14F /* SKMopidyNode.m */; };
+		8234118B1CCB48030025A14F /* SKMopidyIntTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8234118A1CCB48030025A14F /* SKMopidyIntTests.m */; };
+		8234118D1CCB48030025A14F /* SKMopidy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8234111C1CCB3F4D0025A14F /* SKMopidy.framework */; };
+		823411951CCB48600025A14F /* SKMopidyNodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 823411941CCB48600025A14F /* SKMopidyNodeTests.m */; };
+		8234119F1CCB4F6B0025A14F /* SKMopidyNodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8234119E1CCB4F6B0025A14F /* SKMopidyNodeTests.m */; };
+		823411A31CCB50130025A14F /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823411A11CCB50130025A14F /* OCHamcrest.framework */; };
+		823411A41CCB50130025A14F /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823411A21CCB50130025A14F /* OCMockito.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		823411281CCB3F4D0025A14F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 823411131CCB3F4D0025A14F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8234111B1CCB3F4D0025A14F;
+			remoteInfo = SKMopidy;
+		};
+		8234118E1CCB48030025A14F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 823411131CCB3F4D0025A14F /* Project object */;
 			proxyType = 1;
@@ -35,6 +51,16 @@
 		8234116F1CCB42540025A14F /* SKMopidyPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyPlayer.h; sourceTree = "<group>"; };
 		823411701CCB42540025A14F /* SKMopidyPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyPlayer.m; sourceTree = "<group>"; };
 		823411741CCB42800025A14F /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKUtils.framework; path = Carthage/Build/iOS/SKUtils.framework; sourceTree = SOURCE_ROOT; };
+		8234117D1CCB47210025A14F /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = Carthage/Build/iOS/SocketRocket.framework; sourceTree = SOURCE_ROOT; };
+		823411801CCB478C0025A14F /* SKMopidyNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyNode.h; sourceTree = "<group>"; };
+		823411811CCB478C0025A14F /* SKMopidyNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyNode.m; sourceTree = "<group>"; };
+		823411881CCB48030025A14F /* SKMopidyIntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKMopidyIntTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8234118A1CCB48030025A14F /* SKMopidyIntTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKMopidyIntTests.m; sourceTree = "<group>"; };
+		8234118C1CCB48030025A14F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		823411941CCB48600025A14F /* SKMopidyNodeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyNodeTests.m; sourceTree = "<group>"; };
+		8234119E1CCB4F6B0025A14F /* SKMopidyNodeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyNodeTests.m; sourceTree = "<group>"; };
+		823411A11CCB50130025A14F /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = Carthage/Build/iOS/OCHamcrest.framework; sourceTree = SOURCE_ROOT; };
+		823411A21CCB50130025A14F /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockito.framework; path = Carthage/Build/iOS/OCMockito.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				823411751CCB42800025A14F /* SKUtils.framework in Frameworks */,
+				8234117E1CCB47210025A14F /* SocketRocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +78,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				823411271CCB3F4D0025A14F /* SKMopidy.framework in Frameworks */,
+				823411A31CCB50130025A14F /* OCHamcrest.framework in Frameworks */,
+				823411A41CCB50130025A14F /* OCMockito.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		823411851CCB48030025A14F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8234118D1CCB48030025A14F /* SKMopidy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +99,7 @@
 			children = (
 				8234111E1CCB3F4D0025A14F /* SKMopidy */,
 				8234112A1CCB3F4D0025A14F /* SKMopidyTests */,
+				823411891CCB48030025A14F /* SKMopidyIntTests */,
 				8234111D1CCB3F4D0025A14F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +109,7 @@
 			children = (
 				8234111C1CCB3F4D0025A14F /* SKMopidy.framework */,
 				823411261CCB3F4D0025A14F /* SKMopidyTests.xctest */,
+				823411881CCB48030025A14F /* SKMopidyIntTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +117,7 @@
 		8234111E1CCB3F4D0025A14F /* SKMopidy */ = {
 			isa = PBXGroup;
 			children = (
+				8234117F1CCB476F0025A14F /* Node */,
 				8234116E1CCB423D0025A14F /* Player */,
 				823411731CCB42670025A14F /* Framework */,
 				8234111F1CCB3F4D0025A14F /* SKMopidy.h */,
@@ -89,6 +129,8 @@
 		8234112A1CCB3F4D0025A14F /* SKMopidyTests */ = {
 			isa = PBXGroup;
 			children = (
+				8234119D1CCB4F6B0025A14F /* Node */,
+				8234119C1CCB4F6B0025A14F /* Framework */,
 				8234112B1CCB3F4D0025A14F /* SKMopidyTests.m */,
 				8234112D1CCB3F4D0025A14F /* Info.plist */,
 			);
@@ -107,9 +149,62 @@
 		823411731CCB42670025A14F /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				8234117D1CCB47210025A14F /* SocketRocket.framework */,
 				823411741CCB42800025A14F /* SKUtils.framework */,
 			);
 			path = Framework;
+			sourceTree = "<group>";
+		};
+		8234117F1CCB476F0025A14F /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				823411801CCB478C0025A14F /* SKMopidyNode.h */,
+				823411811CCB478C0025A14F /* SKMopidyNode.m */,
+			);
+			path = Node;
+			sourceTree = "<group>";
+		};
+		823411891CCB48030025A14F /* SKMopidyIntTests */ = {
+			isa = PBXGroup;
+			children = (
+				823411931CCB484B0025A14F /* Node */,
+				823411961CCB4ABC0025A14F /* Framework */,
+				8234118A1CCB48030025A14F /* SKMopidyIntTests.m */,
+				8234118C1CCB48030025A14F /* Info.plist */,
+			);
+			path = SKMopidyIntTests;
+			sourceTree = "<group>";
+		};
+		823411931CCB484B0025A14F /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				823411941CCB48600025A14F /* SKMopidyNodeTests.m */,
+			);
+			path = Node;
+			sourceTree = "<group>";
+		};
+		823411961CCB4ABC0025A14F /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		8234119C1CCB4F6B0025A14F /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				823411A11CCB50130025A14F /* OCHamcrest.framework */,
+				823411A21CCB50130025A14F /* OCMockito.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		8234119D1CCB4F6B0025A14F /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				8234119E1CCB4F6B0025A14F /* SKMopidyNodeTests.m */,
+			);
+			path = Node;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				823411201CCB3F4D0025A14F /* SKMopidy.h in Headers */,
+				823411821CCB478C0025A14F /* SKMopidyNode.h in Headers */,
 				823411711CCB42540025A14F /* SKMopidyPlayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +249,7 @@
 				823411221CCB3F4D0025A14F /* Sources */,
 				823411231CCB3F4D0025A14F /* Frameworks */,
 				823411241CCB3F4D0025A14F /* Resources */,
+				823411A01CCB4F7D0025A14F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -162,6 +259,24 @@
 			name = SKMopidyTests;
 			productName = SKMopidyTests;
 			productReference = 823411261CCB3F4D0025A14F /* SKMopidyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		823411871CCB48030025A14F /* SKMopidyIntTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 823411901CCB48030025A14F /* Build configuration list for PBXNativeTarget "SKMopidyIntTests" */;
+			buildPhases = (
+				823411841CCB48030025A14F /* Sources */,
+				823411851CCB48030025A14F /* Frameworks */,
+				823411861CCB48030025A14F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8234118F1CCB48030025A14F /* PBXTargetDependency */,
+			);
+			name = SKMopidyIntTests;
+			productName = SKMopidyIntTests;
+			productReference = 823411881CCB48030025A14F /* SKMopidyIntTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -177,6 +292,9 @@
 						CreatedOnToolsVersion = 7.3;
 					};
 					823411251CCB3F4D0025A14F = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					823411871CCB48030025A14F = {
 						CreatedOnToolsVersion = 7.3;
 					};
 				};
@@ -195,6 +313,7 @@
 			targets = (
 				8234111B1CCB3F4D0025A14F /* SKMopidy */,
 				823411251CCB3F4D0025A14F /* SKMopidyTests */,
+				823411871CCB48030025A14F /* SKMopidyIntTests */,
 			);
 		};
 /* End PBXProject section */
@@ -214,6 +333,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		823411861CCB48030025A14F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -224,6 +350,22 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SKUtils.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SocketRocket.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		823411A01CCB4F7D0025A14F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/OCMockito.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OCHamcrest.framework",
 			);
 			outputPaths = (
 			);
@@ -239,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				823411721CCB42540025A14F /* SKMopidyPlayer.m in Sources */,
+				823411831CCB478C0025A14F /* SKMopidyNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +390,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8234112C1CCB3F4D0025A14F /* SKMopidyTests.m in Sources */,
+				8234119F1CCB4F6B0025A14F /* SKMopidyNodeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		823411841CCB48030025A14F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8234118B1CCB48030025A14F /* SKMopidyIntTests.m in Sources */,
+				823411951CCB48600025A14F /* SKMopidyNodeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +410,11 @@
 			isa = PBXTargetDependency;
 			target = 8234111B1CCB3F4D0025A14F /* SKMopidy */;
 			targetProxy = 823411281CCB3F4D0025A14F /* PBXContainerItemProxy */;
+		};
+		8234118F1CCB48030025A14F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8234111B1CCB3F4D0025A14F /* SKMopidy */;
+			targetProxy = 8234118E1CCB48030025A14F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -394,6 +552,10 @@
 		823411341CCB3F4D0025A14F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SKMopidyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKMopidyTests;
@@ -404,9 +566,41 @@
 		823411351CCB3F4D0025A14F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SKMopidyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKMopidyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		823411911CCB48030025A14F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = SKMopidyIntTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKMopidyIntTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		823411921CCB48030025A14F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = SKMopidyIntTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKMopidyIntTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -437,6 +631,15 @@
 			buildConfigurations = (
 				823411341CCB3F4D0025A14F /* Debug */,
 				823411351CCB3F4D0025A14F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		823411901CCB48030025A14F /* Build configuration list for PBXNativeTarget "SKMopidyIntTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				823411911CCB48030025A14F /* Debug */,
+				823411921CCB48030025A14F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

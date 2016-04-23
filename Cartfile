@@ -1,2 +1,2 @@
 github "skchen/SKUtils" "develop"
-
+github "square/SocketRocket" "master"
