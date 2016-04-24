@@ -8,6 +8,11 @@
 
 @import SKUtils;
 
-@interface SKMopidyPlayer : SKPlayer
+#import "SKMopidyRef.h"
+#import "SKMopidyConnection.h"
+
+@interface SKMopidyPlayer : SKPlayer <id>
+
+- (nonnull instancetype)initWithConnection:(nonnull SKMopidyConnection *)connection;
 
 @end

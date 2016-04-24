@@ -21,6 +21,8 @@
     _connection.delegate = self;
     [_connection connect];
     
+    _player = [[SKMopidyPlayer alloc] initWithConnection:_connection];
+    
     return YES;
 }
 

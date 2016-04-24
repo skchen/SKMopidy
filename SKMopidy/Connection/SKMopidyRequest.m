@@ -8,6 +8,8 @@
 
 #import "SKMopidyRequest.h"
 
+#import "SKMopidyModel.h"
+
 @interface SKMopidyRequest ()
 
 @property(nonatomic, copy, readonly) dispatch_semaphore_t semaphore;
@@ -52,7 +54,7 @@
 }
 
 - (void)setResult:(id)result {
-    _result = result;
+    _result = [SKMopidyModel format:result];
     [self notify];
 }
 

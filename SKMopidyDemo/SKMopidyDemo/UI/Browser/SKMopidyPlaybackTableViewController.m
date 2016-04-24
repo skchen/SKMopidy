@@ -100,7 +100,7 @@
             
         case 1: {
             SKMopidyRef *ref = [_resources objectAtIndex:indexPath.row];
-            if(ref.type==SKMopidyRefDirectory) {
+            if( (ref.type==SKMopidyRefDirectory) || (ref.type==SKMopidyRefAlbum) ) {
                 [_refs addObject:ref];
                 [self queryAndShow];
             }
@@ -135,7 +135,7 @@
             
         case 1: {
             SKMopidyRef *ref = [_resources objectAtIndex:indexPath.row];
-            if(ref.type==SKMopidyRefDirectory) {
+            if( (ref.type==SKMopidyRefDirectory) || (ref.type==SKMopidyRefAlbum) ) {
                 return NO;
             }
         }

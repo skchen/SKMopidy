@@ -22,4 +22,8 @@ FOUNDATION_EXPORT const unsigned char SKMopidyVersionString[];
 #import <SKMopidy/SKMopidyPlayer.h>
 
 #import <SKMopidy/SKMopidyModel.h>
+#import <SKMopidy/SKMopidyModel_Protected.h>
 #import <SKMopidy/SKMopidyRef.h>
+#import <SKMopidy/SKMopidyTrack.h>
+#import <SKMopidy/SKMopidyAlbum.h>
+#import <SKMopidy/SKMopidyArtist.h>

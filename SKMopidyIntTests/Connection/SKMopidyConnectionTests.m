@@ -51,6 +51,11 @@
     NSLog(@"Result: %@", request.result);
 }
 
+- (void)test_clearTrackList {
+    SKMopidyRequest *request = [connection perform:@"core.tracklist.clear"];
+    NSLog(@"Result: %@", request.result);
+}
+
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
     [self measureBlock:^{

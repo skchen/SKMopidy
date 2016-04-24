@@ -8,22 +8,19 @@
 
 #import "SKMopidyRef.h"
 
+#import "SKMopidyModel_Protected.h"
+
 static NSString const * kKeyRefType = @"type";
 static NSString const * kValueRefTypeDirectory = @"directory";
-static NSString const * kKeyRefName = @"name";
-static NSString const * kKeyRefUri = @"uri";
+static NSString const * kValueRefTypeAlbum = @"album";
 
 @implementation SKMopidyRef
 
 - (nonnull instancetype)initWithDictionary:(nonnull NSDictionary *)dictionary {
-    self = [super init];
-    
-    _name = [dictionary objectForKey:kKeyRefName];
+    self = [super initWithDictionary:dictionary];
     
     NSString *typeString = [dictionary objectForKey:kKeyRefType];
     _type = [SKMopidyRef typeForString:typeString];
-    
-    _uri = [dictionary objectForKey:kKeyRefUri];
     
     return self;
 }
@@ -31,17 +28,19 @@ static NSString const * kKeyRefUri = @"uri";
 + (SKMopidyRefType)typeForString:(NSString *)typeString {
     if([typeString isEqualToString:kValueRefTypeDirectory]) {
         return SKMopidyRefDirectory;
+    } else if([typeString isEqualToString:kValueRefTypeAlbum]) {
+        return SKMopidyRefAlbum;
     }
     
     return SKMopidyRefUnknown;
 }
 
 - (NSDictionary *)dict {
-    return @{kKeyRefName:_name, kKeyRefType:@(_type), kKeyRefUri:_uri};
-}
-
-- (NSString *)description {
-    return [[self dict] description];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:[super dict]];
+    
+    [dict setObject:@(_type) forKey:kKeyRefType];
+    
+    return dict;
 }
 
 @end

@@ -10,13 +10,12 @@
 
 typedef enum : NSUInteger {
     SKMopidyRefUnknown,
-    SKMopidyRefDirectory
+    SKMopidyRefDirectory,
+    SKMopidyRefAlbum
 } SKMopidyRefType;
 
 @interface SKMopidyRef : SKMopidyModel
 
-@property(nonatomic, copy, readonly) NSString *name;
 @property(nonatomic, assign, readonly) SKMopidyRefType type;
-@property(nonatomic, copy, readonly) NSString *uri;
 
 @end

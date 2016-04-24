@@ -45,7 +45,7 @@
     [self updatePlayPauseButton];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [_player setDataSource:_ref];
+        [_player setDataSource:_ref.uri];
         [_player prepare];
         [_player start];
         

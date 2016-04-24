@@ -10,6 +10,8 @@
 
 #import "SKMopidyBrowse.h"
 
+static NSString const * kUriToLookup = @"local:track:MusicBox/%E3%80%90%E7%94%B0%E9%A6%A5%E7%94%84%20Hebe%E3%80%91To%20Hebe/11.%20Love%20%21.mp3";
+
 @interface SKMopidyBrowseTests : XCTestCase <SKMopidyConnectionDelegate>
 
 @end
@@ -19,9 +21,6 @@
     SKMopidyBrowse *browser;
     
     XCTestExpectation *expectation;
-    
-    int pendingRequestId;
-    NSDictionary *pendingRequestResult;
 }
 
 - (void)setUp {
@@ -38,7 +37,8 @@
         NSLog(@"setUp Error: %@", error);
     }];
     
-    browser = [[SKMopidyBrowse alloc] initWithConnection:connection];}
+    browser = [[SKMopidyBrowse alloc] initWithConnection:connection];
+}
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
@@ -51,10 +51,15 @@
 }
 
 - (void)test_shouldGetRefContent_whenBrowseWithRef {
-    NSArray<SKMopidyRef *> *rootDirectories = [browse list:nil];
+    NSArray<SKMopidyRef *> *rootDirectories = [browser browse:nil];
     SKMopidyRef *targetDirectory = [rootDirectories     objectAtIndex:0];
     NSArray<SKMopidyRef *> *result = [browser browse:targetDirectory];
     NSLog(@"result: %@", result);
+}
+
+- (void)test_shouldLookUpTrackUri {
+    SKMopidyTrack *track = [SKMopidyBrowse lookup:kUriToLookup withConnection:connection];
+    NSLog(@"result: %@", track);
 }
 
 - (void)testPerformanceExample {
