@@ -14,14 +14,22 @@
 		823411721CCB42540025A14F /* SKMopidyPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 823411701CCB42540025A14F /* SKMopidyPlayer.m */; };
 		823411751CCB42800025A14F /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823411741CCB42800025A14F /* SKUtils.framework */; };
 		8234117E1CCB47210025A14F /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8234117D1CCB47210025A14F /* SocketRocket.framework */; };
-		823411821CCB478C0025A14F /* SKMopidyNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 823411801CCB478C0025A14F /* SKMopidyNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		823411831CCB478C0025A14F /* SKMopidyNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 823411811CCB478C0025A14F /* SKMopidyNode.m */; };
 		8234118B1CCB48030025A14F /* SKMopidyIntTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8234118A1CCB48030025A14F /* SKMopidyIntTests.m */; };
 		8234118D1CCB48030025A14F /* SKMopidy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8234111C1CCB3F4D0025A14F /* SKMopidy.framework */; };
-		823411951CCB48600025A14F /* SKMopidyNodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 823411941CCB48600025A14F /* SKMopidyNodeTests.m */; };
-		8234119F1CCB4F6B0025A14F /* SKMopidyNodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8234119E1CCB4F6B0025A14F /* SKMopidyNodeTests.m */; };
 		823411A31CCB50130025A14F /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823411A11CCB50130025A14F /* OCHamcrest.framework */; };
 		823411A41CCB50130025A14F /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823411A21CCB50130025A14F /* OCMockito.framework */; };
+		82B9013E1CCBAE4C008473EF /* SKMopidyBrowse.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B9013C1CCBAE4C008473EF /* SKMopidyBrowse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82B9013F1CCBAE4C008473EF /* SKMopidyBrowse.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B9013D1CCBAE4C008473EF /* SKMopidyBrowse.m */; };
+		82B901421CCBAEE8008473EF /* SKMopidyBrowseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901411CCBAEE8008473EF /* SKMopidyBrowseTests.m */; };
+		82B901461CCBB295008473EF /* SKMopidyConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901441CCBB295008473EF /* SKMopidyConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82B901471CCBB295008473EF /* SKMopidyConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901451CCBB295008473EF /* SKMopidyConnection.m */; };
+		82B9014A1CCBB2F3008473EF /* SKMopidyConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901491CCBB2F3008473EF /* SKMopidyConnectionTests.m */; };
+		82B9014D1CCBB8E7008473EF /* SKMopidyRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B9014B1CCBB8E7008473EF /* SKMopidyRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82B9014E1CCBB8E7008473EF /* SKMopidyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B9014C1CCBB8E7008473EF /* SKMopidyRequest.m */; };
+		82B901521CCCA33B008473EF /* SKMopidyRef.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901501CCCA33B008473EF /* SKMopidyRef.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82B901531CCCA33B008473EF /* SKMopidyRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901511CCCA33B008473EF /* SKMopidyRef.m */; };
+		82B901561CCCA4D2008473EF /* SKMopidyModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901541CCCA4D2008473EF /* SKMopidyModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82B901571CCCA4D2008473EF /* SKMopidyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901551CCCA4D2008473EF /* SKMopidyModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,15 +60,23 @@
 		823411701CCB42540025A14F /* SKMopidyPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyPlayer.m; sourceTree = "<group>"; };
 		823411741CCB42800025A14F /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKUtils.framework; path = Carthage/Build/iOS/SKUtils.framework; sourceTree = SOURCE_ROOT; };
 		8234117D1CCB47210025A14F /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = Carthage/Build/iOS/SocketRocket.framework; sourceTree = SOURCE_ROOT; };
-		823411801CCB478C0025A14F /* SKMopidyNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyNode.h; sourceTree = "<group>"; };
-		823411811CCB478C0025A14F /* SKMopidyNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyNode.m; sourceTree = "<group>"; };
 		823411881CCB48030025A14F /* SKMopidyIntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKMopidyIntTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8234118A1CCB48030025A14F /* SKMopidyIntTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKMopidyIntTests.m; sourceTree = "<group>"; };
 		8234118C1CCB48030025A14F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		823411941CCB48600025A14F /* SKMopidyNodeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyNodeTests.m; sourceTree = "<group>"; };
-		8234119E1CCB4F6B0025A14F /* SKMopidyNodeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyNodeTests.m; sourceTree = "<group>"; };
 		823411A11CCB50130025A14F /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = Carthage/Build/iOS/OCHamcrest.framework; sourceTree = SOURCE_ROOT; };
 		823411A21CCB50130025A14F /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockito.framework; path = Carthage/Build/iOS/OCMockito.framework; sourceTree = SOURCE_ROOT; };
+		82B9013C1CCBAE4C008473EF /* SKMopidyBrowse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyBrowse.h; sourceTree = "<group>"; };
+		82B9013D1CCBAE4C008473EF /* SKMopidyBrowse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyBrowse.m; sourceTree = "<group>"; };
+		82B901411CCBAEE8008473EF /* SKMopidyBrowseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyBrowseTests.m; sourceTree = "<group>"; };
+		82B901441CCBB295008473EF /* SKMopidyConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyConnection.h; sourceTree = "<group>"; };
+		82B901451CCBB295008473EF /* SKMopidyConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyConnection.m; sourceTree = "<group>"; };
+		82B901491CCBB2F3008473EF /* SKMopidyConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyConnectionTests.m; sourceTree = "<group>"; };
+		82B9014B1CCBB8E7008473EF /* SKMopidyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyRequest.h; sourceTree = "<group>"; };
+		82B9014C1CCBB8E7008473EF /* SKMopidyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyRequest.m; sourceTree = "<group>"; };
+		82B901501CCCA33B008473EF /* SKMopidyRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyRef.h; sourceTree = "<group>"; };
+		82B901511CCCA33B008473EF /* SKMopidyRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyRef.m; sourceTree = "<group>"; };
+		82B901541CCCA4D2008473EF /* SKMopidyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyModel.h; sourceTree = "<group>"; };
+		82B901551CCCA4D2008473EF /* SKMopidyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +133,10 @@
 		8234111E1CCB3F4D0025A14F /* SKMopidy */ = {
 			isa = PBXGroup;
 			children = (
-				8234117F1CCB476F0025A14F /* Node */,
+				82B901431CCBB295008473EF /* Connection */,
+				82B9013B1CCBAE32008473EF /* Browse */,
 				8234116E1CCB423D0025A14F /* Player */,
+				82B9014F1CCCA2E5008473EF /* Model */,
 				823411731CCB42670025A14F /* Framework */,
 				8234111F1CCB3F4D0025A14F /* SKMopidy.h */,
 				823411211CCB3F4D0025A14F /* Info.plist */,
@@ -129,7 +147,6 @@
 		8234112A1CCB3F4D0025A14F /* SKMopidyTests */ = {
 			isa = PBXGroup;
 			children = (
-				8234119D1CCB4F6B0025A14F /* Node */,
 				8234119C1CCB4F6B0025A14F /* Framework */,
 				8234112B1CCB3F4D0025A14F /* SKMopidyTests.m */,
 				8234112D1CCB3F4D0025A14F /* Info.plist */,
@@ -155,32 +172,16 @@
 			path = Framework;
 			sourceTree = "<group>";
 		};
-		8234117F1CCB476F0025A14F /* Node */ = {
-			isa = PBXGroup;
-			children = (
-				823411801CCB478C0025A14F /* SKMopidyNode.h */,
-				823411811CCB478C0025A14F /* SKMopidyNode.m */,
-			);
-			path = Node;
-			sourceTree = "<group>";
-		};
 		823411891CCB48030025A14F /* SKMopidyIntTests */ = {
 			isa = PBXGroup;
 			children = (
-				823411931CCB484B0025A14F /* Node */,
+				82B901481CCBB2F3008473EF /* Connection */,
+				82B901401CCBAED2008473EF /* Browse */,
 				823411961CCB4ABC0025A14F /* Framework */,
 				8234118A1CCB48030025A14F /* SKMopidyIntTests.m */,
 				8234118C1CCB48030025A14F /* Info.plist */,
 			);
 			path = SKMopidyIntTests;
-			sourceTree = "<group>";
-		};
-		823411931CCB484B0025A14F /* Node */ = {
-			isa = PBXGroup;
-			children = (
-				823411941CCB48600025A14F /* SKMopidyNodeTests.m */,
-			);
-			path = Node;
 			sourceTree = "<group>";
 		};
 		823411961CCB4ABC0025A14F /* Framework */ = {
@@ -199,12 +200,51 @@
 			path = Framework;
 			sourceTree = "<group>";
 		};
-		8234119D1CCB4F6B0025A14F /* Node */ = {
+		82B9013B1CCBAE32008473EF /* Browse */ = {
 			isa = PBXGroup;
 			children = (
-				8234119E1CCB4F6B0025A14F /* SKMopidyNodeTests.m */,
+				82B9013C1CCBAE4C008473EF /* SKMopidyBrowse.h */,
+				82B9013D1CCBAE4C008473EF /* SKMopidyBrowse.m */,
 			);
-			path = Node;
+			path = Browse;
+			sourceTree = "<group>";
+		};
+		82B901401CCBAED2008473EF /* Browse */ = {
+			isa = PBXGroup;
+			children = (
+				82B901411CCBAEE8008473EF /* SKMopidyBrowseTests.m */,
+			);
+			path = Browse;
+			sourceTree = "<group>";
+		};
+		82B901431CCBB295008473EF /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				82B901441CCBB295008473EF /* SKMopidyConnection.h */,
+				82B901451CCBB295008473EF /* SKMopidyConnection.m */,
+				82B9014B1CCBB8E7008473EF /* SKMopidyRequest.h */,
+				82B9014C1CCBB8E7008473EF /* SKMopidyRequest.m */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
+		82B901481CCBB2F3008473EF /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				82B901491CCBB2F3008473EF /* SKMopidyConnectionTests.m */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
+		82B9014F1CCCA2E5008473EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				82B901541CCCA4D2008473EF /* SKMopidyModel.h */,
+				82B901551CCCA4D2008473EF /* SKMopidyModel.m */,
+				82B901501CCCA33B008473EF /* SKMopidyRef.h */,
+				82B901511CCCA33B008473EF /* SKMopidyRef.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,7 +255,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				823411201CCB3F4D0025A14F /* SKMopidy.h in Headers */,
-				823411821CCB478C0025A14F /* SKMopidyNode.h in Headers */,
+				82B901461CCBB295008473EF /* SKMopidyConnection.h in Headers */,
+				82B9014D1CCBB8E7008473EF /* SKMopidyRequest.h in Headers */,
+				82B9013E1CCBAE4C008473EF /* SKMopidyBrowse.h in Headers */,
+				82B901561CCCA4D2008473EF /* SKMopidyModel.h in Headers */,
+				82B901521CCCA33B008473EF /* SKMopidyRef.h in Headers */,
 				823411711CCB42540025A14F /* SKMopidyPlayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,8 +424,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82B9013F1CCBAE4C008473EF /* SKMopidyBrowse.m in Sources */,
+				82B901571CCCA4D2008473EF /* SKMopidyModel.m in Sources */,
+				82B9014E1CCBB8E7008473EF /* SKMopidyRequest.m in Sources */,
 				823411721CCB42540025A14F /* SKMopidyPlayer.m in Sources */,
-				823411831CCB478C0025A14F /* SKMopidyNode.m in Sources */,
+				82B901531CCCA33B008473EF /* SKMopidyRef.m in Sources */,
+				82B901471CCBB295008473EF /* SKMopidyConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +438,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8234112C1CCB3F4D0025A14F /* SKMopidyTests.m in Sources */,
-				8234119F1CCB4F6B0025A14F /* SKMopidyNodeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +446,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8234118B1CCB48030025A14F /* SKMopidyIntTests.m in Sources */,
-				823411951CCB48600025A14F /* SKMopidyNodeTests.m in Sources */,
+				82B901421CCBAEE8008473EF /* SKMopidyBrowseTests.m in Sources */,
+				82B9014A1CCBB2F3008473EF /* SKMopidyConnectionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
