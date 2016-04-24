@@ -38,11 +38,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.title = _ref.name;
+    
     [self resetProgress];
     [self updatePlayPauseButton];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [_player setDataSource:_uri];
+        [_player setDataSource:_ref];
         [_player prepare];
         [_player start];
         

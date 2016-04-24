@@ -16,7 +16,7 @@
 
 @implementation SKMopidyBrowseTests {
     SKMopidyConnection *connection;
-    SKMopidyBrowse *browse;
+    SKMopidyBrowse *browser;
     
     XCTestExpectation *expectation;
     
@@ -38,7 +38,7 @@
         NSLog(@"setUp Error: %@", error);
     }];
     
-    browse = [[SKMopidyBrowse alloc] initWithConnection:connection];}
+    browser = [[SKMopidyBrowse alloc] initWithConnection:connection];}
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
@@ -46,14 +46,14 @@
 }
 
 - (void)test_shouldGetRoot_whenBrowseWithNilPath {
-    NSArray<SKMopidyRef *> *result = [browse list:nil];
+    NSArray<SKMopidyRef *> *result = [browser browse:nil];
     NSLog(@"result: %@", result);
 }
 
 - (void)test_shouldGetRefContent_whenBrowseWithRef {
     NSArray<SKMopidyRef *> *rootDirectories = [browse list:nil];
     SKMopidyRef *targetDirectory = [rootDirectories     objectAtIndex:0];
-    NSArray<SKMopidyRef *> *result = [browse list:targetDirectory];
+    NSArray<SKMopidyRef *> *result = [browser browse:targetDirectory];
     NSLog(@"result: %@", result);
 }
 

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <SKMopidyConnectionDelegate>
 
 @end
 
@@ -16,7 +16,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    _connection = [[SKMopidyConnection alloc] initWithIp:@"192.168.2.79" andPort:6680];
+    _connection.delegate = self;
+    [_connection connect];
+    
     return YES;
 }
 
@@ -40,6 +44,12 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - SKMopidyConnectionDelegate
+
+- (void)mopidyDidConnected:(nonnull SKMopidyConnection *)connection {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"sessionUpdated" object:self];
 }
 
 @end

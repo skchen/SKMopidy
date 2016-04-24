@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@import SKMopidy;
+
 @interface SKMopidyPlayerViewController : UIViewController
 
-@property(nonatomic, copy, nullable) NSString *uri;
+@property(nonatomic, strong, nullable) SKMopidyRef *ref;
 
 
 @end

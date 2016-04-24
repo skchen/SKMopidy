@@ -10,7 +10,7 @@
 
 #import "SKMopidyConnection.h"
 
-@interface SKMopidyBrowse () <SKMopidyConnectionDelegate>
+@interface SKMopidyBrowse ()
 
 @property(nonatomic, strong, readonly, nonnull) SKMopidyConnection *connection;
 
@@ -22,12 +22,11 @@
     self = [super init];
     
     _connection = connection;
-    _connection.delegate = self;
     
     return self;
 }
 
-- (nullable NSArray<SKMopidyRef *> *)list:(nullable SKMopidyRef *)parent; {
+- (nullable NSArray<SKMopidyRef *> *)browse:(nullable SKMopidyRef *)parent; {
     id uri = (parent)?(parent.uri):([NSNull null]);
     NSDictionary *parameters = @{
                                  @"uri" : uri

@@ -13,6 +13,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) SKMopidyConnection *connection;
 @property (nonatomic, strong) SKMopidyPlayer *player;
 
 @end

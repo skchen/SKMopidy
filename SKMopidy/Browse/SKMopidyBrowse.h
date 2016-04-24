@@ -15,6 +15,6 @@
 
 - (nonnull instancetype)initWithConnection:(nonnull SKMopidyConnection *)connection;
 
-- (nullable NSArray<SKMopidyRef *> *)list:(nullable SKMopidyRef *)parent;
+- (nullable NSArray<SKMopidyRef *> *)browse:(nullable SKMopidyRef *)parent;
 
 @end
