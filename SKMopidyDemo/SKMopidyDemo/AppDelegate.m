@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+static NSString const * _Nonnull kMopidyIp = @"192.168.36.212";
+static const int kMopidyPort = 6680;
+
 @interface AppDelegate () <SKMopidyConnectionDelegate>
 
 @end
@@ -17,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    _connection = [[SKMopidyConnection alloc] initWithIp:@"192.168.2.79" andPort:6680];
+    _connection = [[SKMopidyConnection alloc] initWithIp:kMopidyIp andPort:kMopidyPort];
     _connection.delegate = self;
     [_connection connect];
     

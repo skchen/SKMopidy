@@ -8,6 +8,16 @@
 
 #import "SKMopidyTrack.h"
 
+static NSString const * kKeyDuration = @"length";
+
 @implementation SKMopidyTrack
+
+- (nonnull instancetype)initWithDictionary:(nonnull NSDictionary *)dictionary {
+    self = [super initWithDictionary:dictionary];
+    
+    _duration = [[dictionary objectForKey:kKeyDuration] unsignedIntegerValue];
+    
+    return self;
+}
 
 @end

@@ -87,15 +87,29 @@
 }
 
 - (nullable NSError *)_seekTo:(int)msec {
-    return [NSError errorWithDomain:@"not implemented" code:0 userInfo:nil];
+    SKMopidyRequest *seekRequest = [_connection perform:@"core.playback.seek" withParameters:@{@"time_position":@(msec)}];
+    if(seekRequest.error) {
+        return seekRequest.error;
+    }
+    
+    if(!seekRequest.result) {
+        return [NSError errorWithDomain:@"unable to seek" code:0 userInfo:nil];
+    }
+    
+    return nil;
 }
 
 - (int)getCurrentPosition {
-    return -1;
+    SKMopidyRequest *positionRequest = [_connection perform:@"core.playback.get_time_position"];
+    if(positionRequest.result) {
+        return [positionRequest.result intValue];
+    }
+    
+    return nil;
 }
 
 - (int)getDuration {
-    return -1;
+    return _track.duration;
 }
 
 @end

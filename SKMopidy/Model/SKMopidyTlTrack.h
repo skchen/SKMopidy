@@ -8,6 +8,8 @@
 
 #import <SKMopidy/SKMopidy.h>
 
-@interface SKMopidyTlTrack : SKMopidyModel
+@interface SKMopidyTlTrack : SKMopidyTrack
+
+@property(nonatomic, readonly) NSUInteger id;
 
 @end

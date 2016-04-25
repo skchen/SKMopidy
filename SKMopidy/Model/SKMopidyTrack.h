@@ -10,4 +10,6 @@
 
 @interface SKMopidyTrack : SKMopidyModel
 
+@property(nonatomic, readonly) NSUInteger duration;
+
 @end
