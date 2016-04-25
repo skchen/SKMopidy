@@ -8,7 +8,8 @@
 
 #import "SKMopidyCore.h"
 
-static NSString const * kValueEventTrackListChanged = @"tracklist_changed";
+static NSString const * kValueEventPlaylistsLoaded = @"playlists_loaded";
+static NSString const * kValueEventTracklistChanged = @"tracklist_changed";
 static NSString const * kValueEventPlaybackStateChanged = @"playback_state_changed";
 static NSString const * kValueEventPlaybackStarted = @"track_playback_started";
 static NSString const * kValueEventPlaybackPaused = @"track_playback_paused";
@@ -23,7 +24,8 @@ static NSString const * kValuePlaybackPaused = @"paused";
 
 + (SKMopidyEventType)eventTypeForCode:(nullable NSString *)code {
     NSArray *candidates = @[@"",
-                            kValueEventTrackListChanged,
+                            kValueEventPlaylistsLoaded,
+                            kValueEventTracklistChanged,
                             kValueEventPlaybackStateChanged,
                             kValueEventPlaybackStarted,
                             kValueEventPlaybackPaused,

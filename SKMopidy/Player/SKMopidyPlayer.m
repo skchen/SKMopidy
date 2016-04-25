@@ -12,7 +12,7 @@
 
 #import "SKMopidyTlTrack.h"
 
-@interface SKMopidyPlayer ()
+@interface SKMopidyPlayer () <SKMopidyConnectionDelegate>
 
 @property(nonatomic, strong, readonly, nonnull) SKMopidyConnection *connection;
 @property(nonatomic, strong, readonly, nullable) id source;
@@ -26,6 +26,7 @@
     self = [super init];
     
     _connection = connection;
+    _connection.delegate = self;
     
     return self;
 }
@@ -109,6 +110,19 @@
 
 - (int)getDuration {
     return _track.duration;
+}
+
+#pragma mark - SKMopidyConnectionDelegate
+
+- (void)mopidy:(SKMopidyConnection *)connection didReceiveEvent:(SKMopidyEvent *)event {
+    switch(event.type) {
+        case SKMopidyEventPlaybackEnded:
+            [self notifyCompletion];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

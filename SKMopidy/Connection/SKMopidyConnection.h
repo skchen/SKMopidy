@@ -17,6 +17,7 @@
 
 - (nonnull instancetype)initWithIp:(nonnull NSString *)ip andPort:(int)port;
 
+@property(nonatomic, readonly) BOOL isConnected;
 @property(nonatomic, weak, nullable) id<SKMopidyConnectionDelegate> delegate;
 
 - (void)connect;
@@ -30,6 +31,8 @@
 
 @optional
 - (void)mopidyDidConnected:(nonnull SKMopidyConnection *)connection;
+- (void)mopidy:(nonnull SKMopidyConnection *)connection failToConnect:(NSError *)error;
+- (void)mopidy:(nonnull SKMopidyConnection *)connection didDisconnected:(NSError *)error;
 - (void)mopidy:(nonnull SKMopidyConnection *)connection didReceiveEvent:(nonnull SKMopidyEvent *)event;
 
 @end

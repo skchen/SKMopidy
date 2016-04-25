@@ -29,6 +29,8 @@
 - (nonnull instancetype)initWithIp:(NSString *)ip andPort:(int)port {
     self = [super init];
     
+    _isConnected = NO;
+    
     _ip = ip;
     _port = port;
     
@@ -122,8 +124,6 @@
 #pragma mark - SRWebSocketDelegate
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
-    NSLog(@"webSocket.didReceiveMessage: %@", message);
-    
     NSDictionary *messageDictionary = [self dictionaryForJsonString:message];
     
     if([messageDictionary objectForKey:@"id"]) {
@@ -134,7 +134,7 @@
 }
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
-    NSLog(@"webSocketDidOpen");
+    _isConnected = YES;
     
     if([_delegate respondsToSelector:@selector(mopidyDidConnected:)]) {
         [_delegate mopidyDidConnected:self];
@@ -142,16 +142,17 @@
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
-    NSLog(@"webSocket.didFailWithError:%@", error);
+    if([_delegate respondsToSelector:@selector(mopidy:failToConnect:)]) {
+        [_delegate mopidy:self failToConnect:error];
+    }
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
-
-    NSLog(@"webSocket.didCloseWithCode:%@ reason:%@ wasClean:%@", @(code), reason, @(wasClean));
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {
-    NSLog(@"webSocket.didReceivePong:%@", pongPayload);
+    _isConnected = NO;
+    
+    if([_delegate respondsToSelector:@selector(mopidy:didDisconnected:)]) {
+        [_delegate mopidy:self didDisconnected:[NSError errorWithDomain:reason code:code userInfo:nil]];
+    }
 }
 
 @end
