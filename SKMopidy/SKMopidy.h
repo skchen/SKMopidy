@@ -16,8 +16,11 @@ FOUNDATION_EXPORT const unsigned char SKMopidyVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SKMopidy/PublicHeader.h>
 
+#import <SKMopidy/SKMopidyCore.h>
+
 #import <SKMopidy/SKMopidyConnection.h>
 #import <SKMopidy/SKMopidyRequest.h>
+#import <SKMopidy/SKMopidyEvent.h>
 #import <SKMopidy/SKMopidyBrowse.h>
 #import <SKMopidy/SKMopidyPlayer.h>
 
@@ -27,3 +30,4 @@ FOUNDATION_EXPORT const unsigned char SKMopidyVersionString[];
 #import <SKMopidy/SKMopidyTrack.h>
 #import <SKMopidy/SKMopidyAlbum.h>
 #import <SKMopidy/SKMopidyArtist.h>
+#import <SKMopidy/SKMopidyTlTrack.h>

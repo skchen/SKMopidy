@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "SKMopidyRequest.h"
+#import "SKMopidyEvent.h"
 
 @protocol SKMopidyConnectionDelegate;
 
@@ -27,6 +28,8 @@
 
 @protocol SKMopidyConnectionDelegate <NSObject>
 
+@optional
 - (void)mopidyDidConnected:(nonnull SKMopidyConnection *)connection;
+- (void)mopidy:(nonnull SKMopidyConnection *)connection didReceiveEvent:(nonnull SKMopidyEvent *)event;
 
 @end

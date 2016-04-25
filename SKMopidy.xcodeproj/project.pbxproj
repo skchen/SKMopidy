@@ -38,8 +38,12 @@
 		82B901651CCCFB70008473EF /* SKMopidyArtist.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901631CCCFB70008473EF /* SKMopidyArtist.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82B901661CCCFB70008473EF /* SKMopidyArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901641CCCFB70008473EF /* SKMopidyArtist.m */; };
 		82B901681CCCFC8E008473EF /* SKMopidyModel_Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901671CCCFC8E008473EF /* SKMopidyModel_Protected.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		82B9016B1CCD080F008473EF /* SKMopidyTlTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901691CCD080F008473EF /* SKMopidyTlTrack.h */; };
+		82B9016B1CCD080F008473EF /* SKMopidyTlTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901691CCD080F008473EF /* SKMopidyTlTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82B9016C1CCD080F008473EF /* SKMopidyTlTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B9016A1CCD080F008473EF /* SKMopidyTlTrack.m */; };
+		82B9016F1CCD992A008473EF /* SKMopidyEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B9016D1CCD992A008473EF /* SKMopidyEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82B901701CCD992A008473EF /* SKMopidyEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B9016E1CCD992A008473EF /* SKMopidyEvent.m */; };
+		82B901741CCDA356008473EF /* SKMopidyCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B901721CCDA356008473EF /* SKMopidyCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82B901751CCDA356008473EF /* SKMopidyCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901731CCDA356008473EF /* SKMopidyCore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +101,10 @@
 		82B901671CCCFC8E008473EF /* SKMopidyModel_Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyModel_Protected.h; sourceTree = "<group>"; };
 		82B901691CCD080F008473EF /* SKMopidyTlTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyTlTrack.h; sourceTree = "<group>"; };
 		82B9016A1CCD080F008473EF /* SKMopidyTlTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyTlTrack.m; sourceTree = "<group>"; };
+		82B9016D1CCD992A008473EF /* SKMopidyEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyEvent.h; sourceTree = "<group>"; };
+		82B9016E1CCD992A008473EF /* SKMopidyEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyEvent.m; sourceTree = "<group>"; };
+		82B901721CCDA356008473EF /* SKMopidyCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyCore.h; sourceTree = "<group>"; };
+		82B901731CCDA356008473EF /* SKMopidyCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyCore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +161,7 @@
 		8234111E1CCB3F4D0025A14F /* SKMopidy */ = {
 			isa = PBXGroup;
 			children = (
+				82B901711CCDA332008473EF /* Core */,
 				82B901431CCBB295008473EF /* Connection */,
 				82B9013B1CCBAE32008473EF /* Browse */,
 				8234116E1CCB423D0025A14F /* Player */,
@@ -245,6 +254,8 @@
 				82B901451CCBB295008473EF /* SKMopidyConnection.m */,
 				82B9014B1CCBB8E7008473EF /* SKMopidyRequest.h */,
 				82B9014C1CCBB8E7008473EF /* SKMopidyRequest.m */,
+				82B9016D1CCD992A008473EF /* SKMopidyEvent.h */,
+				82B9016E1CCD992A008473EF /* SKMopidyEvent.m */,
 			);
 			path = Connection;
 			sourceTree = "<group>";
@@ -285,6 +296,15 @@
 			path = Player;
 			sourceTree = "<group>";
 		};
+		82B901711CCDA332008473EF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				82B901721CCDA356008473EF /* SKMopidyCore.h */,
+				82B901731CCDA356008473EF /* SKMopidyCore.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -293,14 +313,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				823411201CCB3F4D0025A14F /* SKMopidy.h in Headers */,
+				82B901741CCDA356008473EF /* SKMopidyCore.h in Headers */,
 				82B901461CCBB295008473EF /* SKMopidyConnection.h in Headers */,
 				82B9014D1CCBB8E7008473EF /* SKMopidyRequest.h in Headers */,
 				82B9013E1CCBAE4C008473EF /* SKMopidyBrowse.h in Headers */,
-				82B9016B1CCD080F008473EF /* SKMopidyTlTrack.h in Headers */,
 				82B901561CCCA4D2008473EF /* SKMopidyModel.h in Headers */,
 				82B901681CCCFC8E008473EF /* SKMopidyModel_Protected.h in Headers */,
 				82B901521CCCA33B008473EF /* SKMopidyRef.h in Headers */,
 				82B9015D1CCCFB3C008473EF /* SKMopidyTrack.h in Headers */,
+				82B9016B1CCD080F008473EF /* SKMopidyTlTrack.h in Headers */,
+				82B9016F1CCD992A008473EF /* SKMopidyEvent.h in Headers */,
 				82B901611CCCFB61008473EF /* SKMopidyAlbum.h in Headers */,
 				82B901651CCCFB70008473EF /* SKMopidyArtist.h in Headers */,
 				823411711CCB42540025A14F /* SKMopidyPlayer.h in Headers */,
@@ -473,8 +495,10 @@
 				82B901621CCCFB61008473EF /* SKMopidyAlbum.m in Sources */,
 				82B9014E1CCBB8E7008473EF /* SKMopidyRequest.m in Sources */,
 				823411721CCB42540025A14F /* SKMopidyPlayer.m in Sources */,
+				82B901751CCDA356008473EF /* SKMopidyCore.m in Sources */,
 				82B901531CCCA33B008473EF /* SKMopidyRef.m in Sources */,
 				82B9016C1CCD080F008473EF /* SKMopidyTlTrack.m in Sources */,
+				82B901701CCD992A008473EF /* SKMopidyEvent.m in Sources */,
 				82B901661CCCFB70008473EF /* SKMopidyArtist.m in Sources */,
 				82B901471CCBB295008473EF /* SKMopidyConnection.m in Sources */,
 			);

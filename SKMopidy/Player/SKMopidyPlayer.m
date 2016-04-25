@@ -104,8 +104,7 @@
     if(positionRequest.result) {
         return [positionRequest.result intValue];
     }
-    
-    return nil;
+    return -1;
 }
 
 - (int)getDuration {

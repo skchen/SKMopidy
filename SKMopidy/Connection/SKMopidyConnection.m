@@ -8,6 +8,8 @@
 
 #import "SKMopidyConnection.h"
 
+#import "SKMopidyEvent.h"
+
 @import SocketRocket;
 
 @interface SKMopidyConnection () <SRWebSocketDelegate>
@@ -30,7 +32,7 @@
     _ip = ip;
     _port = port;
     
-    NSString *urlString = [NSString stringWithFormat:@"ws://%@:%d/mopidy/ws", ip, port];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@:%d/mopidy/ws", ip, port];
     NSURL *url = [NSURL URLWithString:urlString];
     _socket = [[SRWebSocket alloc] initWithURL:url];
     _socket.delegate = self;
@@ -92,12 +94,7 @@
     return dictionary;
 }
 
-#pragma mark - SRWebSocketDelegate
-
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
-    NSLog(@"webSocket.didReceiveMessage: %@", message);
-    
-    NSDictionary *response = [self dictionaryForJsonString:message];
+- (void)didReceiveResponse:(NSDictionary *)response {
     NSUInteger requestId = [[response objectForKey:@"id"] unsignedIntegerValue];
     
     SKMopidyRequest *request = [_pendingReuqests objectForKey:@(requestId)];
@@ -114,10 +111,34 @@
     }
 }
 
+- (void)didReceiveEvent:(NSDictionary *)eventDictionary {
+    SKMopidyEvent *event = [[SKMopidyEvent alloc] initWithDictionary:eventDictionary];
+    
+    if([_delegate respondsToSelector:@selector(mopidy:didReceiveEvent:)]) {
+        [_delegate mopidy:self didReceiveEvent:event];
+    }
+}
+
+#pragma mark - SRWebSocketDelegate
+
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
+    NSLog(@"webSocket.didReceiveMessage: %@", message);
+    
+    NSDictionary *messageDictionary = [self dictionaryForJsonString:message];
+    
+    if([messageDictionary objectForKey:@"id"]) {
+        [self didReceiveResponse:messageDictionary];
+    } else if([messageDictionary objectForKey:@"event"]) {
+        [self didReceiveEvent:messageDictionary];
+    }
+}
+
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
     NSLog(@"webSocketDidOpen");
     
-    [_delegate mopidyDidConnected:self];
+    if([_delegate respondsToSelector:@selector(mopidyDidConnected:)]) {
+        [_delegate mopidyDidConnected:self];
+    }
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {

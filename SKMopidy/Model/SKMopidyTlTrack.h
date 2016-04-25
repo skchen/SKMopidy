@@ -6,7 +6,7 @@
 //  Copyright © 2016年 SK. All rights reserved.
 //
 
-#import <SKMopidy/SKMopidy.h>
+#import "SKMopidyTrack.h"
 
 @interface SKMopidyTlTrack : SKMopidyTrack
 
