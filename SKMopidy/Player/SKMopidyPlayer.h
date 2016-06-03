@@ -11,7 +11,7 @@
 #import "SKMopidyRef.h"
 #import "SKMopidyConnection.h"
 
-@interface SKMopidyPlayer : SKPlayer <id>
+@interface SKMopidyPlayer : SKPlayer
 
 - (nonnull instancetype)initWithConnection:(nonnull SKMopidyConnection *)connection;
 

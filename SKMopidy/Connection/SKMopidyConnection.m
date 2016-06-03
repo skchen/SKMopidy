@@ -63,7 +63,7 @@
     
     NSData *json = [request requestData];
     if(json) {
-        [_socket send:json];
+        [_socket sendData:json];
         [_pendingReuqests setObject:request forKey:@(id)];
         [request await];
     } else {

@@ -458,7 +458,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SKUtils.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SocketRocket.framework",
 			);
 			outputPaths = (

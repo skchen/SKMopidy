@@ -10,9 +10,9 @@
 
 #import "SKMopidyModel_Protected.h"
 
-static NSString const * kKeyRefType = @"type";
-static NSString const * kValueRefTypeDirectory = @"directory";
-static NSString const * kValueRefTypeAlbum = @"album";
+static NSString * const kKeyRefType = @"type";
+static NSString * const kValueRefTypeDirectory = @"directory";
+static NSString * const kValueRefTypeAlbum = @"album";
 
 @implementation SKMopidyRef
 
