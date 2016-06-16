@@ -12,7 +12,6 @@
 		8234112C1CCB3F4D0025A14F /* SKMopidyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8234112B1CCB3F4D0025A14F /* SKMopidyTests.m */; };
 		823411711CCB42540025A14F /* SKMopidyPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8234116F1CCB42540025A14F /* SKMopidyPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		823411721CCB42540025A14F /* SKMopidyPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 823411701CCB42540025A14F /* SKMopidyPlayer.m */; };
-		823411751CCB42800025A14F /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823411741CCB42800025A14F /* SKUtils.framework */; };
 		8234117E1CCB47210025A14F /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8234117D1CCB47210025A14F /* SocketRocket.framework */; };
 		8234118B1CCB48030025A14F /* SKMopidyIntTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8234118A1CCB48030025A14F /* SKMopidyIntTests.m */; };
 		8234118D1CCB48030025A14F /* SKMopidy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8234111C1CCB3F4D0025A14F /* SKMopidy.framework */; };
@@ -72,7 +71,6 @@
 		8234112D1CCB3F4D0025A14F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8234116F1CCB42540025A14F /* SKMopidyPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyPlayer.h; sourceTree = "<group>"; };
 		823411701CCB42540025A14F /* SKMopidyPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyPlayer.m; sourceTree = "<group>"; };
-		823411741CCB42800025A14F /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKUtils.framework; path = Carthage/Build/iOS/SKUtils.framework; sourceTree = SOURCE_ROOT; };
 		8234117D1CCB47210025A14F /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = Carthage/Build/iOS/SocketRocket.framework; sourceTree = SOURCE_ROOT; };
 		823411881CCB48030025A14F /* SKMopidyIntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKMopidyIntTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8234118A1CCB48030025A14F /* SKMopidyIntTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKMopidyIntTests.m; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				823411751CCB42800025A14F /* SKUtils.framework in Frameworks */,
 				8234117E1CCB47210025A14F /* SocketRocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				8234117D1CCB47210025A14F /* SocketRocket.framework */,
-				823411741CCB42800025A14F /* SKUtils.framework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
