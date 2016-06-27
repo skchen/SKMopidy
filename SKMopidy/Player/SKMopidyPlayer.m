@@ -8,8 +8,7 @@
 
 #import "SKMopidyPlayer.h"
 
-#import <SKUtils/SKPlayer_Protected.h>
-
+#import "SKMopidyConnection.h"
 #import "SKMopidyTlTrack.h"
 
 @interface SKMopidyPlayer () <SKMopidyConnectionDelegate>

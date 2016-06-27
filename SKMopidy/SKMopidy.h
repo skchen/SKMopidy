@@ -22,7 +22,6 @@ FOUNDATION_EXPORT const unsigned char SKMopidyVersionString[];
 #import <SKMopidy/SKMopidyRequest.h>
 #import <SKMopidy/SKMopidyEvent.h>
 #import <SKMopidy/SKMopidyBrowse.h>
-#import <SKMopidy/SKMopidyPlayer.h>
 
 #import <SKMopidy/SKMopidyModel.h>
 #import <SKMopidy/SKMopidyModel_Protected.h>
@@ -31,3 +30,6 @@ FOUNDATION_EXPORT const unsigned char SKMopidyVersionString[];
 #import <SKMopidy/SKMopidyAlbum.h>
 #import <SKMopidy/SKMopidyArtist.h>
 #import <SKMopidy/SKMopidyTlTrack.h>
+
+#import <SKMopidy/SKMopidyListPlayer.h>
+#import <SKMopidy/SKMopidyPlayer.h>

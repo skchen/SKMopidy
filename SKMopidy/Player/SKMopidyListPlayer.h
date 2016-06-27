@@ -1,8 +1,8 @@
 //
-//  SKMopidyPlayer.h
+//  SKMopidyListPlayer.h
 //  SKMopidy
 //
-//  Created by Shin-Kai Chen on 2016/4/23.
+//  Created by Shin-Kai Chen on 2016/6/22.
 //  Copyright © 2016年 SK. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 @class SKMopidyConnection;
 
-@interface SKMopidyPlayer : SKPlayer
+@interface SKMopidyListPlayer : SKListPlayer
 
 - (nonnull instancetype)initWithConnection:(nonnull SKMopidyConnection *)connection;
 

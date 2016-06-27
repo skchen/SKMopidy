@@ -17,6 +17,8 @@
 		8234118D1CCB48030025A14F /* SKMopidy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8234111C1CCB3F4D0025A14F /* SKMopidy.framework */; };
 		823411A31CCB50130025A14F /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823411A11CCB50130025A14F /* OCHamcrest.framework */; };
 		823411A41CCB50130025A14F /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823411A21CCB50130025A14F /* OCMockito.framework */; };
+		8244FADC1D1A7F83005AAC67 /* SKMopidyListPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8244FADA1D1A7F83005AAC67 /* SKMopidyListPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8244FADD1D1A7F83005AAC67 /* SKMopidyListPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8244FADB1D1A7F83005AAC67 /* SKMopidyListPlayer.m */; };
 		82B9013E1CCBAE4C008473EF /* SKMopidyBrowse.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B9013C1CCBAE4C008473EF /* SKMopidyBrowse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82B9013F1CCBAE4C008473EF /* SKMopidyBrowse.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B9013D1CCBAE4C008473EF /* SKMopidyBrowse.m */; };
 		82B901421CCBAEE8008473EF /* SKMopidyBrowseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901411CCBAEE8008473EF /* SKMopidyBrowseTests.m */; };
@@ -77,6 +79,8 @@
 		8234118C1CCB48030025A14F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		823411A11CCB50130025A14F /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = Carthage/Build/iOS/OCHamcrest.framework; sourceTree = SOURCE_ROOT; };
 		823411A21CCB50130025A14F /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockito.framework; path = Carthage/Build/iOS/OCMockito.framework; sourceTree = SOURCE_ROOT; };
+		8244FADA1D1A7F83005AAC67 /* SKMopidyListPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyListPlayer.h; sourceTree = "<group>"; };
+		8244FADB1D1A7F83005AAC67 /* SKMopidyListPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyListPlayer.m; sourceTree = "<group>"; };
 		82B9013C1CCBAE4C008473EF /* SKMopidyBrowse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyBrowse.h; sourceTree = "<group>"; };
 		82B9013D1CCBAE4C008473EF /* SKMopidyBrowse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyBrowse.m; sourceTree = "<group>"; };
 		82B901411CCBAEE8008473EF /* SKMopidyBrowseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyBrowseTests.m; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 			children = (
 				8234116F1CCB42540025A14F /* SKMopidyPlayer.h */,
 				823411701CCB42540025A14F /* SKMopidyPlayer.m */,
+				8244FADA1D1A7F83005AAC67 /* SKMopidyListPlayer.h */,
+				8244FADB1D1A7F83005AAC67 /* SKMopidyListPlayer.m */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 				82B9016F1CCD992A008473EF /* SKMopidyEvent.h in Headers */,
 				82B901611CCCFB61008473EF /* SKMopidyAlbum.h in Headers */,
 				82B901651CCCFB70008473EF /* SKMopidyArtist.h in Headers */,
+				8244FADC1D1A7F83005AAC67 /* SKMopidyListPlayer.h in Headers */,
 				823411711CCB42540025A14F /* SKMopidyPlayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +496,7 @@
 				82B9015E1CCCFB3C008473EF /* SKMopidyTrack.m in Sources */,
 				82B901621CCCFB61008473EF /* SKMopidyAlbum.m in Sources */,
 				82B9014E1CCBB8E7008473EF /* SKMopidyRequest.m in Sources */,
+				8244FADD1D1A7F83005AAC67 /* SKMopidyListPlayer.m in Sources */,
 				823411721CCB42540025A14F /* SKMopidyPlayer.m in Sources */,
 				82B901751CCDA356008473EF /* SKMopidyCore.m in Sources */,
 				82B901531CCCA33B008473EF /* SKMopidyRef.m in Sources */,
