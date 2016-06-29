@@ -16,6 +16,8 @@
 @property(nonatomic, strong, readonly, nonnull) SKMopidyConnection *connection;
 @property(nonatomic, strong, readonly, nullable) SKMopidyTlTrack *track;
 
+@property(nonatomic, copy, nullable) SKErrorCallback startCallback;
+
 @end
 
 @implementation SKMopidyPlayer
@@ -59,13 +61,15 @@
 }
 
 - (void)_start:(SKErrorCallback)callback {
+    _startCallback = callback;
+    
     SKMopidyRequest *playRequest = [_connection perform:@"core.playback.play"];
     if(playRequest.error) {
-        callback(playRequest.error);
-        return;
+        if(_startCallback) {
+            _startCallback(playRequest.error);
+            _startCallback = nil;
+        }
     }
-    
-    callback(nil);
 }
 
 - (void)_pause:(SKErrorCallback)callback {
@@ -86,6 +90,31 @@
     }
     
     callback(nil);
+}
+
+- (void)seekTo:(NSTimeInterval)time success:(SKTimeCallback)success failure:(SKErrorCallback)failure {
+    switch(_state) {
+        case SKPlayerPrepared:{
+            [self start:^(NSError * _Nullable error) {
+                if(error) {
+                    if(failure) {
+                        dispatch_async(self.callbackQueue, ^{
+                            failure(error);
+                        });
+                    }
+                } else {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self seekTo:time success:success failure:failure];
+                    });
+                }
+            }];
+        }
+            break;
+            
+        default:
+            [super seekTo:time success:success failure:failure];
+            break;
+    }
 }
 
 - (void)_seekTo:(NSTimeInterval)time success:(SKTimeCallback)success failure:(SKErrorCallback)failure {
@@ -126,7 +155,17 @@
 #pragma mark - SKMopidyConnectionDelegate
 
 - (void)mopidy:(SKMopidyConnection *)connection didReceiveEvent:(SKMopidyEvent *)event {
+    
+    SKLog(@"%@", event);
+    
     switch(event.type) {
+        case SKMopidyEventPlaybackStarted:
+            if(_startCallback) {
+                _startCallback(nil);
+                _startCallback = nil;
+            }
+            break;
+            
         case SKMopidyEventPlaybackEnded:
             [self notifyCompletion:nil];
             break;

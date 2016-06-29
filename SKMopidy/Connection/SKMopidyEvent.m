@@ -18,12 +18,16 @@ static NSString const *kKeyTlTrack = @"tl_track";
 
 @interface SKMopidyEvent ()
 
+@property(nonatomic, copy, readonly, nonnull) NSDictionary *dictionary;
+
 @end
 
 @implementation SKMopidyEvent
 
 - (nonnull instancetype)initWithDictionary:(nonnull NSDictionary *)dictionary {
     self = [super init];
+    
+    _dictionary = dictionary;
     
     _type = [SKMopidyCore eventTypeForCode:[dictionary objectForKey:kKeyEvent]];
     
@@ -37,6 +41,10 @@ static NSString const *kKeyTlTrack = @"tl_track";
     }
     
     return self;
+}
+
+- (NSString *)description {
+    return [_dictionary description];
 }
 
 @end
