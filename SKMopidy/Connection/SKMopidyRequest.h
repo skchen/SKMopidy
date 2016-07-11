@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import <SKUtils/SKUtils.h>
+
 @interface SKMopidyRequest : NSObject
 
 @property(nonatomic, readonly) NSUInteger id;
@@ -16,6 +18,9 @@
 
 @property(nonatomic, strong, nullable) NSError *error;
 @property(nonatomic, strong, nullable) id result;
+
+@property(nonatomic, copy, nullable) SKObjectCallback success;
+@property(nonatomic, copy, nullable) SKErrorCallback failure;
 
 - (nonnull instancetype)initWithId:(NSUInteger)id andMethod:(nonnull NSString *)method andParameters:(nullable NSDictionary *)parameters;
 

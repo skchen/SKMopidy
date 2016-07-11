@@ -25,6 +25,9 @@
 - (nonnull SKMopidyRequest *)perform:(nonnull NSString *)method;
 - (nonnull SKMopidyRequest *)perform:(nonnull NSString *)method withParameters:(nullable NSDictionary *)parameters;
 
+- (void)perform:(nonnull NSString *)method success:(nonnull SKObjectCallback)success failure:(nullable SKErrorCallback)failure;
+- (void)perform:(nonnull NSString *)method withParameters:(nullable NSDictionary *)parameters success:(nonnull SKObjectCallback)success failure:(nullable SKErrorCallback)failure;
+
 @end
 
 @protocol SKMopidyConnectionDelegate <NSObject>

@@ -9,6 +9,7 @@
 #import "SKMopidyPlayer.h"
 
 #import "SKMopidyConnection.h"
+#import "SKMopidyCore.h"
 #import "SKMopidyTlTrack.h"
 
 @interface SKMopidyPlayer () <SKMopidyConnectionDelegate>
@@ -22,11 +23,31 @@
 
 @implementation SKMopidyPlayer
 
++ (SKPlayerState)playerStateForMopidyPlaybackState:(SKMopidyPlaybackState)mopidyPlaybackState {
+    switch(mopidyPlaybackState) {
+        case SKMopidyPlaybackStopped:
+            return SKPlayerStopped;
+            
+        case SKMopidyPlaybackPlaying:
+            return SKPlayerStopped;
+            
+        case SKMopidyPlaybackPaused:
+            return SKPlayerPaused;
+            
+        default:
+            return SKPlayerStopped;
+    }
+}
+
 - (nonnull instancetype)initWithConnection:(nonnull SKMopidyConnection *)connection {
     self = [super init];
     
     _connection = connection;
     _connection.delegate = self;
+    
+    if([_connection isConnected]) {
+        [self mopidyDidConnected:_connection];
+    }
     
     return self;
 }
@@ -153,6 +174,29 @@
 }
 
 #pragma mark - SKMopidyConnectionDelegate
+
+- (void)mopidyDidConnected:(SKMopidyConnection *)connection {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        SKMopidyRequest *trackGetRequest = [_connection perform:@"core.playback.get_current_tl_track"];
+        if(trackGetRequest.error) {
+            NSLog(@"Error: %@", trackGetRequest.error);
+            [self changeState:SKPlayerStopped callback:nil];
+            return;
+        } else {
+            _source = trackGetRequest.result;
+            NSLog(@"Current Track: %@", _source);
+        }
+        
+        [SKMopidyCore getPlaybackState:_connection success:^(SKMopidyPlaybackState playbackState) {
+            
+            SKPlayerState state = [SKMopidyPlayer playerStateForMopidyPlaybackState:playbackState];
+            [self changeState:state callback:nil];
+        } failure:^(NSError * _Nullable error) {
+            NSLog(@"Unable to get playback state: %@", error);
+            [self changeState:SKPlayerStopped callback:nil];
+        }];
+    });
+}
 
 - (void)mopidy:(SKMopidyConnection *)connection didReceiveEvent:(SKMopidyEvent *)event {
     

@@ -73,6 +73,27 @@
     return request;
 }
 
+- (void)perform:(nonnull NSString *)method success:(nonnull SKObjectCallback)success failure:(nullable SKErrorCallback)failure {
+    [self perform:method withParameters:nil success:success failure:failure];
+}
+
+- (void)perform:(nonnull NSString *)method withParameters:(nullable NSDictionary *)parameters success:(nonnull SKObjectCallback)success failure:(nullable SKErrorCallback)failure {
+
+    NSUInteger id = [self acquireRequestId];
+    
+    SKMopidyRequest *request = [[SKMopidyRequest alloc] initWithId:id andMethod:method andParameters:parameters];
+    request.success = success;
+    request.failure = failure;
+    
+    NSData *json = [request requestData];
+    if(json) {
+        [_socket sendData:json];
+        [_pendingReuqests setObject:request forKey:@(id)];
+    } else {
+        failure([NSError errorWithDomain:@"Unable to generate request" code:0 userInfo:nil]);
+    }
+}
+
 #pragma mark - Misc
 
 - (NSUInteger)acquireRequestId {

@@ -44,18 +44,25 @@
     NSInteger errorCode = [[dictionary objectForKey:@"code"] integerValue];
     NSDictionary *errorInfo = [dictionary objectForKey:@"data"];
     
-    _error = [NSError errorWithDomain:errorMessage code:errorCode userInfo:errorInfo];
-    [self notify];
+    [self setError:[NSError errorWithDomain:errorMessage code:errorCode userInfo:errorInfo]];
 }
 
 - (void)setError:(NSError *)error {
     _error = error;
     [self notify];
+    
+    if(_failure) {
+        _failure(_error);
+    }
 }
 
 - (void)setResult:(id)result {
     _result = [SKMopidyModel format:result];
     [self notify];
+    
+    if(_success) {
+        _success(_result);
+    }
 }
 
 - (nullable NSData *)requestData {

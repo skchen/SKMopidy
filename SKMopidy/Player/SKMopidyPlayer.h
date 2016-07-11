@@ -8,10 +8,16 @@
 
 #import <SKUtils/SKUtils.h>
 
+#import "SKMopidyCore.h"
+
 @class SKMopidyConnection;
 
 @interface SKMopidyPlayer : SKPlayer
 
++ (SKPlayerState)playerStateForMopidyPlaybackState:(SKMopidyPlaybackState)mopidyPlaybackState;
+
 - (nonnull instancetype)initWithConnection:(nonnull SKMopidyConnection *)connection;
+
+
 
 @end
