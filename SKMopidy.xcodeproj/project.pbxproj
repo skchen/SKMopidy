@@ -19,6 +19,8 @@
 		823411A41CCB50130025A14F /* OCMockito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823411A21CCB50130025A14F /* OCMockito.framework */; };
 		8244FADC1D1A7F83005AAC67 /* SKMopidyListPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8244FADA1D1A7F83005AAC67 /* SKMopidyListPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8244FADD1D1A7F83005AAC67 /* SKMopidyListPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8244FADB1D1A7F83005AAC67 /* SKMopidyListPlayer.m */; };
+		8298D30B1D335CF8004C9F32 /* SKMopidyConnection+Api.h in Headers */ = {isa = PBXBuildFile; fileRef = 8298D3091D335CF8004C9F32 /* SKMopidyConnection+Api.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8298D30C1D335CF8004C9F32 /* SKMopidyConnection+Api.m in Sources */ = {isa = PBXBuildFile; fileRef = 8298D30A1D335CF8004C9F32 /* SKMopidyConnection+Api.m */; };
 		82B9013E1CCBAE4C008473EF /* SKMopidyBrowse.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B9013C1CCBAE4C008473EF /* SKMopidyBrowse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82B9013F1CCBAE4C008473EF /* SKMopidyBrowse.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B9013D1CCBAE4C008473EF /* SKMopidyBrowse.m */; };
 		82B901421CCBAEE8008473EF /* SKMopidyBrowseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B901411CCBAEE8008473EF /* SKMopidyBrowseTests.m */; };
@@ -81,6 +83,8 @@
 		823411A21CCB50130025A14F /* OCMockito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMockito.framework; path = Carthage/Build/iOS/OCMockito.framework; sourceTree = SOURCE_ROOT; };
 		8244FADA1D1A7F83005AAC67 /* SKMopidyListPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyListPlayer.h; sourceTree = "<group>"; };
 		8244FADB1D1A7F83005AAC67 /* SKMopidyListPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyListPlayer.m; sourceTree = "<group>"; };
+		8298D3091D335CF8004C9F32 /* SKMopidyConnection+Api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKMopidyConnection+Api.h"; sourceTree = "<group>"; };
+		8298D30A1D335CF8004C9F32 /* SKMopidyConnection+Api.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKMopidyConnection+Api.m"; sourceTree = "<group>"; };
 		82B9013C1CCBAE4C008473EF /* SKMopidyBrowse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyBrowse.h; sourceTree = "<group>"; };
 		82B9013D1CCBAE4C008473EF /* SKMopidyBrowse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyBrowse.m; sourceTree = "<group>"; };
 		82B901411CCBAEE8008473EF /* SKMopidyBrowseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyBrowseTests.m; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 				82B9014C1CCBB8E7008473EF /* SKMopidyRequest.m */,
 				82B9016D1CCD992A008473EF /* SKMopidyEvent.h */,
 				82B9016E1CCD992A008473EF /* SKMopidyEvent.m */,
+				8298D3091D335CF8004C9F32 /* SKMopidyConnection+Api.h */,
+				8298D30A1D335CF8004C9F32 /* SKMopidyConnection+Api.m */,
 			);
 			path = Connection;
 			sourceTree = "<group>";
@@ -323,6 +329,7 @@
 				82B901681CCCFC8E008473EF /* SKMopidyModel_Protected.h in Headers */,
 				82B901521CCCA33B008473EF /* SKMopidyRef.h in Headers */,
 				82B9015D1CCCFB3C008473EF /* SKMopidyTrack.h in Headers */,
+				8298D30B1D335CF8004C9F32 /* SKMopidyConnection+Api.h in Headers */,
 				82B9016B1CCD080F008473EF /* SKMopidyTlTrack.h in Headers */,
 				82B9016F1CCD992A008473EF /* SKMopidyEvent.h in Headers */,
 				82B901611CCCFB61008473EF /* SKMopidyAlbum.h in Headers */,
@@ -495,6 +502,7 @@
 				82B901571CCCA4D2008473EF /* SKMopidyModel.m in Sources */,
 				82B9015E1CCCFB3C008473EF /* SKMopidyTrack.m in Sources */,
 				82B901621CCCFB61008473EF /* SKMopidyAlbum.m in Sources */,
+				8298D30C1D335CF8004C9F32 /* SKMopidyConnection+Api.m in Sources */,
 				82B9014E1CCBB8E7008473EF /* SKMopidyRequest.m in Sources */,
 				8244FADD1D1A7F83005AAC67 /* SKMopidyListPlayer.m in Sources */,
 				823411721CCB42540025A14F /* SKMopidyPlayer.m in Sources */,

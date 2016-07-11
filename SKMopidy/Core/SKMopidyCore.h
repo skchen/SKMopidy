@@ -31,21 +31,9 @@ typedef enum : NSUInteger {
     SKMopidyPlaybackPaused
 } SKMopidyPlaybackState;
 
-typedef void (^SKPlaybackStateCallback)(SKMopidyPlaybackState playbackState);
-typedef void (^SKPlaybackCallback)(SKMopidyTlTrack * _Nullable playback);
-
 @interface SKMopidyCore : NSObject
 
 + (SKMopidyEventType)eventTypeForCode:(nullable NSString *)code;
 + (SKMopidyPlaybackState)playbackStateForCode:(nullable NSString *)code;
-
-+ (SKMopidyPlaybackState)getPlaybackState:(nonnull SKMopidyConnection *)connection error:(NSError * _Nullable *  _Nullable)errorPtr;
-+ (void)getPlaybackState:(nonnull SKMopidyConnection *)connection success:(nonnull SKPlaybackStateCallback)success failure:(nullable SKErrorCallback)failure;
-
-+ (nullable SKMopidyTlTrack *)getPlayback:(nonnull SKMopidyConnection *)connection error:(NSError * _Nullable *  _Nullable)errorPtr;
-+ (void)getPlayback:(nonnull SKMopidyConnection *)connection success:(nonnull SKPlaybackCallback)success failure:(nullable SKErrorCallback)failure;
-
-+ (nullable NSArray *)getPlaybackList:(nonnull SKMopidyConnection *)connection error:(NSError * _Nullable *  _Nullable)errorPtr;
-+ (void)getPlaybackList:(nonnull SKMopidyConnection *)connection success:(nonnull SKListCallback)success failure:(nullable SKErrorCallback)failure;
 
 @end

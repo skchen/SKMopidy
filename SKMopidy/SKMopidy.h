@@ -19,6 +19,7 @@ FOUNDATION_EXPORT const unsigned char SKMopidyVersionString[];
 #import <SKMopidy/SKMopidyCore.h>
 
 #import <SKMopidy/SKMopidyConnection.h>
+#import <SKMopidy/SKMopidyConnection+Api.h>
 #import <SKMopidy/SKMopidyRequest.h>
 #import <SKMopidy/SKMopidyEvent.h>
 #import <SKMopidy/SKMopidyBrowse.h>

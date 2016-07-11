@@ -22,11 +22,6 @@ static NSString * const kValuePlaybackStopped = @"stopped";
 static NSString * const kValuePlaybackPlaying = @"playing";
 static NSString * const kValuePlaybackPaused = @"paused";
 
-static NSString * const kApiPlaybackStateGet = @"core.playback.get_state";
-static NSString * const kApiPlaybackGet = @"core.playback.get_current_tl_track";
-
-static NSString * const kApiTracklistGet = @"core.tracklist.get_tl_tracks";
-
 @implementation SKMopidyCore
 
 + (SKMopidyEventType)eventTypeForCode:(nullable NSString *)code {
@@ -56,56 +51,6 @@ static NSString * const kApiTracklistGet = @"core.tracklist.get_tl_tracks";
         }
     }
     return 0;
-}
-
-+ (nullable id)get:(nonnull NSString *)command connection:(nonnull SKMopidyConnection *)connection error:(NSError * _Nullable *  _Nullable)errorPtr {
-    SKMopidyRequest *request = [connection perform:command];
-    if(request.error) {
-        *errorPtr = request.error;
-    } else {
-        return request.result;
-    }
-    
-    return nil;
-}
-
-+ (void)get:(nonnull NSString *)command connection:(nonnull SKMopidyConnection *)connection success:(nonnull SKObjectCallback)success failure:(nullable SKErrorCallback)failure {
-    [connection perform:command success:^(id  _Nonnull object) {
-        success(object);
-    } failure:failure];
-}
-
-+ (SKMopidyPlaybackState)getPlaybackState:(nonnull SKMopidyConnection *)connection error:(NSError * _Nullable *  _Nullable)errorPtr {
-    id result = [SKMopidyCore get:kApiPlaybackStateGet connection:connection error:errorPtr];
-    
-    if(!(*errorPtr)) {
-        return [self playbackStateForCode:result];
-    }
-    
-    return SKMopidyPlaybackUnknown;
-}
-
-+ (void)getPlaybackState:(nonnull SKMopidyConnection *)connection success:(nonnull SKPlaybackStateCallback)success failure:(nullable SKErrorCallback)failure {
-    
-    [SKMopidyCore get:kApiPlaybackStateGet connection:connection success:^(id  _Nonnull object) {
-        success([self playbackStateForCode:object]);
-    } failure:failure];
-}
-
-+ (nullable SKMopidyTlTrack *)getPlayback:(nonnull SKMopidyConnection *)connection error:(NSError * _Nullable *  _Nullable)errorPtr {
-    return [SKMopidyCore get:kApiPlaybackGet connection:connection error:errorPtr];
-}
-
-+ (void)getPlayback:(nonnull SKMopidyConnection *)connection success:(nonnull SKPlaybackCallback)success failure:(nullable SKErrorCallback)failure {
-    [SKMopidyCore get:kApiPlaybackGet connection:connection success:success failure:failure];
-}
-
-+ (nullable NSArray *)getPlaybackList:(nonnull SKMopidyConnection *)connection error:(NSError * _Nullable *  _Nullable)errorPtr {
-    return [SKMopidyCore get:kApiTracklistGet connection:connection error:errorPtr];
-}
-
-+ (void)getPlaybackList:(nonnull SKMopidyConnection *)connection success:(nonnull SKListCallback)success failure:(nullable SKErrorCallback)failure {
-    [SKMopidyCore get:kApiTracklistGet connection:connection success:success failure:failure];
 }
 
 @end

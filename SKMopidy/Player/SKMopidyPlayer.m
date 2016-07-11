@@ -8,13 +8,12 @@
 
 #import "SKMopidyPlayer.h"
 
-#import "SKMopidyConnection.h"
+#import "SKMopidyConnection+Api.h"
 #import "SKMopidyCore.h"
 #import "SKMopidyTlTrack.h"
 
 @interface SKMopidyPlayer () <SKMopidyConnectionDelegate>
 
-@property(nonatomic, strong, readonly, nonnull) SKMopidyConnection *connection;
 @property(nonatomic, strong, readonly, nullable) SKMopidyTlTrack *track;
 
 @property(nonatomic, copy, nullable) SKErrorCallback startCallback;
@@ -26,10 +25,10 @@
 + (SKPlayerState)playerStateForMopidyPlaybackState:(SKMopidyPlaybackState)mopidyPlaybackState {
     switch(mopidyPlaybackState) {
         case SKMopidyPlaybackStopped:
-            return SKPlayerStopped;
+            return SKPlayerPrepared;
             
         case SKMopidyPlaybackPlaying:
-            return SKPlayerStopped;
+            return SKPlayerStarted;
             
         case SKMopidyPlaybackPaused:
             return SKPlayerPaused;
@@ -51,6 +50,8 @@
     
     return self;
 }
+
+#pragma mark - Abstract
 
 - (void)_setDataSource:(id)source {
     // Do Nothing
@@ -177,24 +178,21 @@
 
 - (void)mopidyDidConnected:(SKMopidyConnection *)connection {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        SKMopidyRequest *trackGetRequest = [_connection perform:@"core.playback.get_current_tl_track"];
-        if(trackGetRequest.error) {
-            NSLog(@"Error: %@", trackGetRequest.error);
-            [self changeState:SKPlayerStopped callback:nil];
-            return;
-        } else {
-            _source = trackGetRequest.result;
-            NSLog(@"Current Track: %@", _source);
-        }
+        SKErrorCallback onError = ^(NSError * _Nullable error) {
+            [self notifyError:error callback:nil];
+        };
         
-        [SKMopidyCore getPlaybackState:_connection success:^(SKMopidyPlaybackState playbackState) {
+        [connection getPlayback:^(SKMopidyTlTrack * _Nullable playback) {
+            _source = playback;
             
-            SKPlayerState state = [SKMopidyPlayer playerStateForMopidyPlaybackState:playbackState];
-            [self changeState:state callback:nil];
-        } failure:^(NSError * _Nullable error) {
-            NSLog(@"Unable to get playback state: %@", error);
-            [self changeState:SKPlayerStopped callback:nil];
-        }];
+            [connection getPlaybackState:^(SKMopidyPlaybackState playbackState) {
+                _state = [SKMopidyPlayer playerStateForMopidyPlaybackState:playbackState];
+                
+                if([_mopidyDelegate respondsToSelector:@selector(mopidyPlayerDidConnected:)]) {
+                    [_mopidyDelegate mopidyPlayerDidConnected:self];
+                }
+            } failure:onError];
+        } failure:onError];
     });
 }
 
