@@ -17,10 +17,6 @@
 
 @interface SKMopidyPlayer () <SKMopidyConnectionDelegate>
 
-@property(nonatomic, strong, readonly, nullable) SKMopidyTlTrack *track;
-
-@property(nonatomic, copy, nullable) SKErrorCallback startCallback;
-
 @end
 
 @implementation SKMopidyPlayer
@@ -73,48 +69,42 @@
         return;
     }
     
-    NSArray *trackList = uriAddRequest.result;
-    if(trackList) {
-        if([trackList count]>0) {
-            _track = [trackList objectAtIndex:0];
-            callback(nil);
-            return;
-        }
-    }
-    
-    callback([NSError errorWithDomain:@"Unknown error" code:0 userInfo:nil]);
+    callback(nil);
 }
 
-- (void)_start:(SKErrorCallback)callback {
-    _startCallback = callback;
-    
-    SKMopidyRequest *playRequest = [_connection perform:@"core.playback.play"];
-    if(playRequest.error) {
-        if(_startCallback) {
-            _startCallback(playRequest.error);
-            _startCallback = nil;
+- (void)start:(SKErrorCallback)callback {
+    switch (_state) {
+        case SKPlayerStopped: {
+            [self prepare:^(NSError * _Nullable error) {
+                if(error) {
+                    [self notifyError:error callback:callback];
+                } else {
+                    [self start:callback];
+                }
+            }];
         }
+            break;
+            
+        case SKPlayerPrepared:
+            [_connection play:callback];
+            break;
+            
+        case SKPlayerPaused:
+            [_connection resume:callback];
+            break;
+            
+        default:
+            [self notifyIllegalStateException:callback];
+            break;
     }
 }
 
 - (void)_pause:(SKErrorCallback)callback {
-    SKMopidyRequest *pauseRequest = [_connection perform:@"core.playback.pause"];
-    if(pauseRequest.error) {
-        callback(pauseRequest.error);
-        return;
-    }
-    
-    callback(nil);
+    [_connection pause:callback];
 }
 
 - (void)_stop:(SKErrorCallback)callback {
-    SKMopidyRequest *stopRequest = [_connection perform:@"core.playback.stop"];
-    if(stopRequest.error) {
-        callback(stopRequest.error);
-        return;
-    }
-    
-    callback(nil);
+    [_connection stop:callback];
 }
 
 - (void)seekTo:(NSTimeInterval)time success:(SKTimeCallback)success failure:(SKErrorCallback)failure {
@@ -172,7 +162,7 @@
 }
 
 - (void)getDuration:(SKTimeCallback)success failure:(SKErrorCallback)failure {
-    NSUInteger msec = _track.duration;
+    NSUInteger msec = ((SKMopidyTlTrack *)_source).duration;
     NSTimeInterval duration = (float)msec / 1000;
     success(duration);
 }
@@ -206,14 +196,19 @@
     switch(event.type) {
         case SKMopidyEventPlaybackStarted:
             _source = event.tltrack;
+            [self changeState:SKPlayerStarted callback:nil];
+            break;
             
-            if(_startCallback) {
-                _startCallback(nil);
-                _startCallback = nil;
-            }
+        case SKMopidyEventPlaybackResumed:
+            [self changeState:SKPlayerStarted callback:nil];
+            break;
+            
+        case SKMopidyEventPlaybackPaused:
+            [self changeState:SKPlayerPaused callback:nil];
             break;
             
         case SKMopidyEventPlaybackEnded:
+            [self changeState:SKPlayerPrepared callback:nil];
             break;
             
         default:

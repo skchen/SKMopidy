@@ -14,6 +14,11 @@ static NSString * const kApiParameterTrackList = @"tracks";
 static NSString * const kApiPlaybackStateGet = @"core.playback.get_state";
 static NSString * const kApiPlaybackGet = @"core.playback.get_current_tl_track";
 
+static NSString * const kApiPlaybackPlay = @"core.playback.play";
+static NSString * const kApiPlaybackResume = @"core.playback.resume";
+static NSString * const kApiPlaybackPause = @"core.playback.pause";
+static NSString * const kApiPlaybackStop = @"core.playback.stop";
+
 static NSString * const kApiTracklistGet = @"core.tracklist.get_tl_tracks";
 static NSString * const kApiTracklistAdd = @"core.tracklist.add";
 
@@ -42,10 +47,6 @@ static NSString * const kApiLibraryLookup = @"core.library.lookup";
 
 #pragma mark - Tracklist
 
-- (nullable NSArray *)getTracklist:(NSError * _Nullable *  _Nullable)errorPtr {
-    return [self get:kApiTracklistGet parameters:nil error:errorPtr];
-}
-
 - (void)getTracklist:(nonnull SKListCallback)success failure:(nullable SKErrorCallback)failure {
     [self get:kApiTracklistGet parameters:nil success:success failure:failure];
 }
@@ -67,46 +68,42 @@ static NSString * const kApiLibraryLookup = @"core.library.lookup";
 
 #pragma mark - Playback
 
-- (SKMopidyPlaybackState)getPlaybackState:(NSError * _Nullable *  _Nullable)errorPtr {
-    id result = [self get:kApiPlaybackStateGet parameters:nil error:errorPtr];
-    
-    if(!(*errorPtr)) {
-        return [SKMopidyCore playbackStateForCode:result];
-    }
-    
-    return SKMopidyPlaybackUnknown;
-}
-
 - (void)getPlaybackState:(nonnull SKPlaybackStateCallback)success failure:(nullable SKErrorCallback)failure {
     [self get:kApiPlaybackStateGet parameters:nil success:^(id  _Nonnull object) {
         success([SKMopidyCore playbackStateForCode:object]);
     } failure:failure];
 }
 
-- (nullable SKMopidyTlTrack *)getPlayback:(NSError * _Nullable *  _Nullable)errorPtr {
-    return [self get:kApiPlaybackGet parameters:nil error:errorPtr];
-}
-
 - (void)getPlayback:(nonnull SKMopidyTlTrackCallback)success failure:(nullable SKErrorCallback)failure {
     [self get:kApiPlaybackGet parameters:nil success:success failure:failure];
 }
 
-#pragma mark - Library
-
-- (nullable SKMopidyTrack *)lookup:(nonnull NSString *)uri error:(NSError * _Nullable *  _Nullable)errorPtr {
-    NSDictionary *parameters = @{
-                                 kApiParameterUri : uri
-                                 };
-    
-    NSArray *tracks = [self get:kApiLibraryLookup parameters:parameters error:errorPtr];
-    
-    if([tracks count]>0) {
-        return [tracks objectAtIndex:0];
-    } else {
-        *errorPtr = [NSError errorWithDomain:@"unable to lookup resource" code:0 userInfo:nil];
-        return nil;
-    }
+- (void)play:(nullable SKErrorCallback)callback {
+    [self get:kApiPlaybackPlay parameters:nil success:^(id  _Nullable object) {
+        callback(nil);
+    } failure:callback];
 }
+
+- (void)resume:(nullable SKErrorCallback)callback {
+    [self get:kApiPlaybackResume parameters:nil success:^(id  _Nullable object) {
+        callback(nil);
+    } failure:callback];
+}
+
+- (void)pause:(nullable SKErrorCallback)callback {
+    [self get:kApiPlaybackPause parameters:nil success:^(id  _Nullable object) {
+        callback(nil);
+    } failure:callback];
+}
+
+- (void)stop:(nullable SKErrorCallback)callback {
+    [self get:kApiPlaybackStop parameters:nil success:^(id  _Nullable object) {
+        callback(nil);
+    } failure:callback];
+}
+
+
+#pragma mark - Library
 
 - (void)lookup:(nonnull NSString *)uri success:(nonnull SKMopidyTrackCallback)success failure:(nullable SKErrorCallback)failure {
     NSDictionary *parameters = @{
