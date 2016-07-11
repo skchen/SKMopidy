@@ -11,7 +11,10 @@
 #import "SKMopidyPlayer.h"
 #import "SKMopidyConnection+Api.h"
 
-@interface SKMopidyListPlayer () <SKMopidyConnectionDelegate, SKMopidyPlayerDelegate>
+#undef SKLog
+#define SKLog(__FORMAT__, ...)
+
+@interface SKMopidyListPlayer () <SKPlayerDelegate, SKMopidyConnectionDelegate, SKMopidyPlayerDelegate>
 
 @end
 
@@ -19,6 +22,7 @@
 
 - (nonnull instancetype)initWithConnection:(nonnull SKMopidyConnection *)connection {
     SKMopidyPlayer *innerPlayer = [[SKMopidyPlayer alloc] initWithConnection:connection];
+    innerPlayer.delegate = self;
     innerPlayer.mopidyDelegate = self;
     
     self = [super initWithPlayer:innerPlayer];
@@ -56,11 +60,12 @@
     }
 }
 
-#pragma mark - SKMopidyConnectionDelegate
+#pragma mark - SKPlayerDelegate
 
-- (void)mopidyDidConnected:(SKMopidyConnection *)connection {
-    id<SKMopidyConnectionDelegate> player = (id<SKMopidyConnectionDelegate>)_innerPlayer;
-    [player mopidyDidConnected:connection];
+- (void)player:(SKPlayer *)player didChangeState:(SKPlayerState)newState {
+    if([_delegate respondsToSelector:@selector(player:didChangeState:)]) {
+        [_delegate player:self didChangeState:newState];
+    }
 }
 
 #pragma mark - SKMopidyPlayerDelegate
@@ -82,6 +87,18 @@
     } failure:^(NSError * _Nullable error) {
         [self notifyError:error callback:nil];
     }];
+}
+
+#pragma mark - SKMopidyConnectionDelegate
+
+- (void)mopidyDidConnected:(SKMopidyConnection *)connection {
+    id<SKMopidyConnectionDelegate> player = (id<SKMopidyConnectionDelegate>)_innerPlayer;
+    [player mopidyDidConnected:connection];
+}
+
+- (void)mopidy:(SKMopidyConnection *)connection didReceiveEvent:(SKMopidyEvent *)event {
+    id<SKMopidyConnectionDelegate> player = (id<SKMopidyConnectionDelegate>)_innerPlayer;
+    [player mopidy:connection didReceiveEvent:event];
 }
 
 @end

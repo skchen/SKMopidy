@@ -12,6 +12,9 @@
 #import "SKMopidyCore.h"
 #import "SKMopidyTlTrack.h"
 
+#undef SKLog
+#define SKLog(__FORMAT__, ...)
+
 @interface SKMopidyPlayer () <SKMopidyConnectionDelegate>
 
 @property(nonatomic, strong, readonly, nullable) SKMopidyTlTrack *track;
@@ -202,6 +205,8 @@
     
     switch(event.type) {
         case SKMopidyEventPlaybackStarted:
+            _source = event.tltrack;
+            
             if(_startCallback) {
                 _startCallback(nil);
                 _startCallback = nil;
@@ -209,7 +214,6 @@
             break;
             
         case SKMopidyEventPlaybackEnded:
-            [self notifyCompletion:nil];
             break;
             
         default:

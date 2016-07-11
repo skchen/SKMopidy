@@ -19,6 +19,7 @@ typedef enum : NSUInteger {
     SKMopidyEventTracklistChanged,
     SKMopidyEventPlaybackStateChanged,
     SKMopidyEventPlaybackStarted,
+    SKMopidyEventPlaybackResumed,
     SKMopidyEventPlaybackPaused,
     SKMopidyEventPlaybackEnded,
     SKMopidyEventPlaybackSeeked

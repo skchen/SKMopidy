@@ -14,6 +14,7 @@ static NSString * const kValueEventPlaylistsLoaded = @"playlists_loaded";
 static NSString * const kValueEventTracklistChanged = @"tracklist_changed";
 static NSString * const kValueEventPlaybackStateChanged = @"playback_state_changed";
 static NSString * const kValueEventPlaybackStarted = @"track_playback_started";
+static NSString * const kValueEventPlaybackResumed = @"track_playback_resumed";
 static NSString * const kValueEventPlaybackPaused = @"track_playback_paused";
 static NSString * const kValueEventPlaybackEnded = @"track_playback_ended";
 static NSString * const kValueEventPlaybackSeeked = @"seeked";
@@ -30,6 +31,7 @@ static NSString * const kValuePlaybackPaused = @"paused";
                             kValueEventTracklistChanged,
                             kValueEventPlaybackStateChanged,
                             kValueEventPlaybackStarted,
+                            kValueEventPlaybackResumed,
                             kValueEventPlaybackPaused,
                             kValueEventPlaybackEnded,
                             kValueEventPlaybackSeeked];
