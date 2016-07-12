@@ -10,6 +10,7 @@
 
 static NSString * const kApiParameterUri = @"uri";
 static NSString * const kApiParameterTrackList = @"tracks";
+static NSString * const kApiParameterTimePosition = @"time_position";
 
 static NSString * const kApiPlaybackStateGet = @"core.playback.get_state";
 static NSString * const kApiPlaybackGet = @"core.playback.get_current_tl_track";
@@ -18,6 +19,7 @@ static NSString * const kApiPlaybackPlay = @"core.playback.play";
 static NSString * const kApiPlaybackResume = @"core.playback.resume";
 static NSString * const kApiPlaybackPause = @"core.playback.pause";
 static NSString * const kApiPlaybackStop = @"core.playback.stop";
+static NSString * const kApiPlaybackSeek = @"core.playback.seek";
 
 static NSString * const kApiTracklistGet = @"core.tracklist.get_tl_tracks";
 static NSString * const kApiTracklistAdd = @"core.tracklist.add";
@@ -98,6 +100,19 @@ static NSString * const kApiLibraryLookup = @"core.library.lookup";
 
 - (void)stop:(nullable SKErrorCallback)callback {
     [self get:kApiPlaybackStop parameters:nil success:^(id  _Nullable object) {
+        callback(nil);
+    } failure:callback];
+}
+
+- (void)seek:(NSTimeInterval)target callback:(nullable SKErrorCallback)callback {
+    
+    int msec = (int)round(target*1000);
+    
+    NSDictionary *parameters = @{
+                                 kApiParameterTimePosition : @(msec)
+                                 };
+    
+    [self get:kApiPlaybackSeek parameters:parameters success:^(id  _Nullable object) {
         callback(nil);
     } failure:callback];
 }

@@ -99,12 +99,29 @@
     }
 }
 
-- (void)_pause:(SKErrorCallback)callback {
-    [_connection pause:callback];
+- (void)pause:(SKErrorCallback)callback {
+    switch (_state) {
+        case SKPlayerStarted:
+            [_connection pause:callback];
+            break;
+            
+        default:
+            [self notifyIllegalStateException:callback];
+            break;
+    }
 }
 
-- (void)_stop:(SKErrorCallback)callback {
-    [_connection stop:callback];
+- (void)stop:(SKErrorCallback)callback {
+    switch (_state) {
+        case SKPlayerStarted:
+        case SKPlayerPaused:
+            [_connection stop:callback];
+            break;
+            
+        default:
+            [self notifyIllegalStateException:callback];
+            break;
+    }
 }
 
 - (void)seekTo:(NSTimeInterval)time success:(SKTimeCallback)success failure:(SKErrorCallback)failure {
@@ -134,20 +151,13 @@
 
 - (void)_seekTo:(NSTimeInterval)time success:(SKTimeCallback)success failure:(SKErrorCallback)failure {
     
-    int msec = (int)round(time*1000);
-    
-    SKMopidyRequest *seekRequest = [_connection perform:@"core.playback.seek" withParameters:@{@"time_position":@(msec)}];
-    if(seekRequest.error) {
-        failure(seekRequest.error);
-        return;
-    }
-    
-    if(seekRequest.result) {
-        success(time);
-        return;
-    }
-    
-    failure([NSError errorWithDomain:@"Unknown error" code:0 userInfo:nil]);
+    [_connection seek:time callback:^(NSError * _Nullable error) {
+        if(error) {
+            failure(error);
+        } else {
+            success(time);
+        }
+    }];
 }
 
 - (void)_getCurrentPosition:(SKTimeCallback)success failure:(SKErrorCallback)failure {

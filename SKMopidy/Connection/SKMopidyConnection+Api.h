@@ -30,6 +30,7 @@ typedef void (^SKMopidyTlTrackCallback)(SKMopidyTlTrack * _Nullable tltrack);
 - (void)resume:(nullable SKErrorCallback)callback;
 - (void)pause:(nullable SKErrorCallback)callback;
 - (void)stop:(nullable SKErrorCallback)callback;
+- (void)seek:(NSTimeInterval)target callback:(nullable SKErrorCallback)callback;
 
 #pragma mark - Library
 
