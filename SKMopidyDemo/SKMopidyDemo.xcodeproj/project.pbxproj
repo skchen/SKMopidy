@@ -14,9 +14,6 @@
 		823411521CCB40290025A14F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 823411501CCB40290025A14F /* LaunchScreen.storyboard */; };
 		8234116C1CCB41810025A14F /* SKMopidyPlaybackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 823411681CCB41810025A14F /* SKMopidyPlaybackTableViewController.m */; };
 		8234116D1CCB41810025A14F /* SKMopidyPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8234116B1CCB41810025A14F /* SKMopidyPlayerViewController.m */; };
-		823411791CCB430A0025A14F /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823411781CCB430A0025A14F /* SKUtils.framework */; };
-		8234117C1CCB444F0025A14F /* SKMopidy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8234117B1CCB444F0025A14F /* SKMopidy.framework */; };
-		82DCB46E1D37C20400AA8803 /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82DCB46D1D37C20400AA8803 /* SocketRocket.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,9 +29,6 @@
 		823411681CCB41810025A14F /* SKMopidyPlaybackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyPlaybackTableViewController.m; sourceTree = "<group>"; };
 		8234116A1CCB41810025A14F /* SKMopidyPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyPlayerViewController.h; sourceTree = "<group>"; };
 		8234116B1CCB41810025A14F /* SKMopidyPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyPlayerViewController.m; sourceTree = "<group>"; };
-		823411781CCB430A0025A14F /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKUtils.framework; path = ../../../Carthage/Build/iOS/SKUtils.framework; sourceTree = "<group>"; };
-		8234117B1CCB444F0025A14F /* SKMopidy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKMopidy.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/SKMopidyDemo-favddnhxwxtoplevtrynwiqouyzt/Build/Products/Debug-iphonesimulator/SKMopidy.framework"; sourceTree = "<group>"; };
-		82DCB46D1D37C20400AA8803 /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = ../../../Carthage/Build/iOS/SocketRocket.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,9 +36,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8234117C1CCB444F0025A14F /* SKMopidy.framework in Frameworks */,
-				82DCB46E1D37C20400AA8803 /* SocketRocket.framework in Frameworks */,
-				823411791CCB430A0025A14F /* SKUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,9 +112,6 @@
 		823411771CCB42F10025A14F /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				8234117B1CCB444F0025A14F /* SKMopidy.framework */,
-				823411781CCB430A0025A14F /* SKUtils.framework */,
-				82DCB46D1D37C20400AA8803 /* SocketRocket.framework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
