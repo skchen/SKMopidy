@@ -20,6 +20,7 @@ typedef void (^SKMopidyTlTrackCallback)(SKMopidyTlTrack * _Nullable tltrack);
 
 - (void)getTracklist:(nonnull SKListCallback)success failure:(nullable SKErrorCallback)failure;
 - (void)addTrack:(nonnull NSString *)uri success:(nonnull SKMopidyTlTrackCallback)success failure:(nullable SKErrorCallback)failure;
+- (void)clearTracklist:(nullable SKErrorCallback)callback;
 
 #pragma mark - Playback
 
@@ -31,6 +32,8 @@ typedef void (^SKMopidyTlTrackCallback)(SKMopidyTlTrack * _Nullable tltrack);
 - (void)pause:(nullable SKErrorCallback)callback;
 - (void)stop:(nullable SKErrorCallback)callback;
 - (void)seek:(NSTimeInterval)target callback:(nullable SKErrorCallback)callback;
+
+- (void)getTimePosition:(nonnull SKTimeCallback)success failure:(nullable SKErrorCallback)failure;
 
 #pragma mark - Library
 

@@ -1,3 +1,1 @@
-github "hamcrest/OCHamcrest" "v5.3.0"
-github "square/SocketRocket" "c5954964ad80c9dfafd6e720eb388518e6992be4"
-github "jonreid/OCMockito" "d8c1e598de6f3067cb7ebe3aa68910a0228f62ff"
+github "square/SocketRocket" "ecf7f75de371e635577d64bdcd9147c8374258c0"

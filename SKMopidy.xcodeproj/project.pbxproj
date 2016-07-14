@@ -12,7 +12,6 @@
 		8234112C1CCB3F4D0025A14F /* SKMopidyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8234112B1CCB3F4D0025A14F /* SKMopidyTests.m */; };
 		823411711CCB42540025A14F /* SKMopidyPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8234116F1CCB42540025A14F /* SKMopidyPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		823411721CCB42540025A14F /* SKMopidyPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 823411701CCB42540025A14F /* SKMopidyPlayer.m */; };
-		8234117E1CCB47210025A14F /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8234117D1CCB47210025A14F /* SocketRocket.framework */; };
 		8234118B1CCB48030025A14F /* SKMopidyIntTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8234118A1CCB48030025A14F /* SKMopidyIntTests.m */; };
 		8234118D1CCB48030025A14F /* SKMopidy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8234111C1CCB3F4D0025A14F /* SKMopidy.framework */; };
 		823411A31CCB50130025A14F /* OCHamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823411A11CCB50130025A14F /* OCHamcrest.framework */; };
@@ -75,7 +74,6 @@
 		8234112D1CCB3F4D0025A14F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8234116F1CCB42540025A14F /* SKMopidyPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMopidyPlayer.h; sourceTree = "<group>"; };
 		823411701CCB42540025A14F /* SKMopidyPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyPlayer.m; sourceTree = "<group>"; };
-		8234117D1CCB47210025A14F /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = Carthage/Build/iOS/SocketRocket.framework; sourceTree = SOURCE_ROOT; };
 		823411881CCB48030025A14F /* SKMopidyIntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKMopidyIntTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8234118A1CCB48030025A14F /* SKMopidyIntTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKMopidyIntTests.m; sourceTree = "<group>"; };
 		8234118C1CCB48030025A14F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8234117E1CCB47210025A14F /* SocketRocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +199,6 @@
 		823411731CCB42670025A14F /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				8234117D1CCB47210025A14F /* SocketRocket.framework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -350,7 +346,6 @@
 				823411181CCB3F4D0025A14F /* Frameworks */,
 				823411191CCB3F4D0025A14F /* Headers */,
 				8234111A1CCB3F4D0025A14F /* Resources */,
-				823411761CCB42AB0025A14F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -462,20 +457,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		823411761CCB42AB0025A14F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SocketRocket.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
 		823411A01CCB4F7D0025A14F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -654,6 +635,7 @@
 				INFOPLIST_FILE = SKMopidy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKMopidy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -674,6 +656,7 @@
 				INFOPLIST_FILE = SKMopidy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKMopidy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

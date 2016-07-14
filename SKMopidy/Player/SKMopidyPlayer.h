@@ -20,7 +20,7 @@
 
 @end
 
-@interface SKMopidyPlayer : SKPlayer
+@interface SKMopidyPlayer : SKSimplePlayer
 
 @property(nonatomic, weak, nullable) id<SKMopidyPlayerDelegate> mopidyDelegate;
 

@@ -7,4 +7,10 @@
    <FileRef
       location = "group:../SKMopidy.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../Libraries/SKUtils/SKUtils.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Libraries/SocketRocket/SocketRocket.xcodeproj">
+   </FileRef>
 </Workspace>

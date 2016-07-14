@@ -11,13 +11,15 @@
 #import "SKMopidyPlayerViewController.h"
 #import "AppDelegate.h"
 
-@import SKMopidy;
+#import <SKMopidy/SKMopidy.h>
 
 @interface SKMopidyPlaybackTableViewController ()
 
 @property(nonatomic, strong, nonnull) SKMopidyBrowse *browser;
 @property(nonatomic, strong, nullable) NSArray *resources;
 @property(nonatomic, strong, nullable) NSMutableArray *refs;
+
+@property(nonatomic, strong, nonnull) SKMopidyConnection *connection;
 
 @end
 
@@ -29,14 +31,17 @@
     _refs = [[NSMutableArray alloc] init];
     
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
-    _browser = [[SKMopidyBrowse alloc] initWithConnection:app.connection];
+    _connection = app.connection;
+    _browser = [[SKMopidyBrowse alloc] initWithConnection:_connection];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
     
-    [self queryAndShow];
+    if([_connection isConnected]) {
+        [self queryAndShow];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

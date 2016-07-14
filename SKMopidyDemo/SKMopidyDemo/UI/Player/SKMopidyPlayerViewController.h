@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@import SKMopidy;
+#import <SKUtils/SKUtils.h>
 
-@interface SKMopidyPlayerViewController : UIViewController
+@class SKMopidyRef;
+
+@interface SKMopidyPlayerViewController : SKPlayerViewController
 
 @property(nonatomic, strong, nullable) SKMopidyRef *ref;
 

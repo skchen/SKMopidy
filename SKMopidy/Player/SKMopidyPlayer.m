@@ -8,9 +8,9 @@
 
 #import "SKMopidyPlayer.h"
 
-#import "SKMopidyConnection+Api.h"
 #import "SKMopidyCore.h"
 #import "SKMopidyTlTrack.h"
+#import "SKMopidyConnection+Api.h"
 
 #undef SKLog
 #define SKLog(__FORMAT__, ...)
@@ -24,16 +24,16 @@
 + (SKPlayerState)playerStateForMopidyPlaybackState:(SKMopidyPlaybackState)mopidyPlaybackState {
     switch(mopidyPlaybackState) {
         case SKMopidyPlaybackStopped:
-            return SKPlayerPrepared;
+            return SKPlayerStopped;
             
         case SKMopidyPlaybackPlaying:
-            return SKPlayerStarted;
+            return SKPlayerPlaying;
             
         case SKMopidyPlaybackPaused:
             return SKPlayerPaused;
             
         default:
-            return SKPlayerStopped;
+            return SKPlayerUnknown;
     }
 }
 
@@ -52,105 +52,54 @@
 
 #pragma mark - Abstract
 
-- (void)_setDataSource:(id)source {
-    // Do Nothing
-}
-
-- (void)_prepare:(SKErrorCallback)callback {
-    SKMopidyRequest *trackListClearRequest = [_connection perform:@"core.tracklist.clear"];
-    if(trackListClearRequest.error) {
-        callback(trackListClearRequest.error);
-        return;
-    }
+- (void)_setSource:(id)source callback:(SKErrorCallback)callback {
+    __weak __typeof(self) weakSelf = self;
     
-    SKMopidyRequest *uriAddRequest = [_connection perform:@"core.tracklist.add" withParameters:@{@"uri":_source}];
-    if(uriAddRequest.error) {
-        callback(uriAddRequest.error);
-        return;
-    }
-    
-    callback(nil);
-}
-
-- (void)start:(SKErrorCallback)callback {
-    switch (_state) {
-        case SKPlayerStopped: {
-            [self prepare:^(NSError * _Nullable error) {
-                if(error) {
-                    [self notifyError:error callback:callback];
-                } else {
-                    [self start:callback];
-                }
-            }];
-        }
-            break;
-            
-        case SKPlayerPrepared:
-            [_connection play:callback];
-            break;
-            
-        case SKPlayerPaused:
-            [_connection resume:callback];
-            break;
-            
-        default:
-            [self notifyIllegalStateException:callback];
-            break;
+    if([source isKindOfClass:[NSString class]]) {
+        [_connection clearTracklist:^(NSError * _Nullable error) {
+            if(error) {
+                callback(error);
+            } else {
+                [_connection addTrack:source success:^(SKMopidyTlTrack * _Nullable tltrack) {
+                    [weakSelf changeSource:tltrack callback:callback];
+                } failure:callback];
+            }
+        }];
+    } else  if([source isKindOfClass:[SKMopidyRef class]]) {
+        SKMopidyRef *ref = (SKMopidyRef *)source;
+        [self _setSource:ref.uri callback:callback];
+    } else {
+        [self notifyErrorMessage:@"Unable to set source" callback:callback];
     }
 }
 
-- (void)pause:(SKErrorCallback)callback {
-    switch (_state) {
-        case SKPlayerStarted:
-            [_connection pause:callback];
-            break;
-            
-        default:
-            [self notifyIllegalStateException:callback];
-            break;
-    }
+- (void)_start:(SKErrorCallback)callback {
+    [_connection play:callback];
 }
 
-- (void)stop:(SKErrorCallback)callback {
-    switch (_state) {
-        case SKPlayerStarted:
-        case SKPlayerPaused:
-            [_connection stop:callback];
-            break;
-            
-        default:
-            [self notifyIllegalStateException:callback];
-            break;
-    }
+- (void)_resume:(SKErrorCallback)callback {
+    [_connection resume:callback];
 }
 
-- (void)seekTo:(NSTimeInterval)time success:(SKTimeCallback)success failure:(SKErrorCallback)failure {
-    switch(_state) {
-        case SKPlayerPrepared:{
-            [self start:^(NSError * _Nullable error) {
-                if(error) {
-                    if(failure) {
-                        dispatch_async(self.callbackQueue, ^{
-                            failure(error);
-                        });
-                    }
-                } else {
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [self seekTo:time success:success failure:failure];
-                    });
-                }
-            }];
-        }
-            break;
-            
-        default:
-            [super seekTo:time success:success failure:failure];
-            break;
-    }
+- (void)_pause:(SKErrorCallback)callback {
+    [_connection pause:callback];
+}
+
+- (void)_stop:(SKErrorCallback)callback {
+    [_connection stop:callback];
+}
+
+- (void)_getDuration:(SKTimeCallback)success failure:(SKErrorCallback)failure {
+    NSUInteger msec = ((SKMopidyTlTrack *)_source).duration;
+    NSTimeInterval duration = (float)msec / 1000;
+    success(duration);
+}
+
+- (void)_getProgress:(SKTimeCallback)success failure:(SKErrorCallback)failure {
+    [_connection getTimePosition:success failure:failure];
 }
 
 - (void)_seekTo:(NSTimeInterval)time success:(SKTimeCallback)success failure:(SKErrorCallback)failure {
-    
     [_connection seek:time callback:^(NSError * _Nullable error) {
         if(error) {
             failure(error);
@@ -158,23 +107,6 @@
             success(time);
         }
     }];
-}
-
-- (void)_getCurrentPosition:(SKTimeCallback)success failure:(SKErrorCallback)failure {
-    SKMopidyRequest *positionRequest = [_connection perform:@"core.playback.get_time_position"];
-    if(positionRequest.result) {
-        int msec = [positionRequest.result intValue];
-        NSTimeInterval currentPosition = (float)msec / 1000;
-        success(currentPosition);
-    } else {
-        failure(positionRequest.error);
-    }
-}
-
-- (void)getDuration:(SKTimeCallback)success failure:(SKErrorCallback)failure {
-    NSUInteger msec = ((SKMopidyTlTrack *)_source).duration;
-    NSTimeInterval duration = (float)msec / 1000;
-    success(duration);
 }
 
 #pragma mark - SKMopidyConnectionDelegate
@@ -205,12 +137,12 @@
     
     switch(event.type) {
         case SKMopidyEventPlaybackStarted:
-            _source = event.tltrack;
-            [self changeState:SKPlayerStarted callback:nil];
+            [self changeSource:event.tltrack callback:nil];
+            [self changeState:SKPlayerPlaying callback:nil];
             break;
             
         case SKMopidyEventPlaybackResumed:
-            [self changeState:SKPlayerStarted callback:nil];
+            [self changeState:SKPlayerPlaying callback:nil];
             break;
             
         case SKMopidyEventPlaybackPaused:
@@ -218,7 +150,7 @@
             break;
             
         case SKMopidyEventPlaybackEnded:
-            [self changeState:SKPlayerPrepared callback:nil];
+            [self changeState:SKPlayerStopped callback:nil];
             break;
             
         default:

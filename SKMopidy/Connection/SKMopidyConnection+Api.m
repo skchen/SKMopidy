@@ -20,9 +20,11 @@ static NSString * const kApiPlaybackResume = @"core.playback.resume";
 static NSString * const kApiPlaybackPause = @"core.playback.pause";
 static NSString * const kApiPlaybackStop = @"core.playback.stop";
 static NSString * const kApiPlaybackSeek = @"core.playback.seek";
+static NSString * const kApiPlaybackTimePositionGet = @"core.playback.get_time_position";
 
 static NSString * const kApiTracklistGet = @"core.tracklist.get_tl_tracks";
 static NSString * const kApiTracklistAdd = @"core.tracklist.add";
+static NSString * const kApiTracklistClear = @"core.tracklist.clear";
 
 static NSString * const kApiLibraryLookup = @"core.library.lookup";
 
@@ -66,6 +68,12 @@ static NSString * const kApiLibraryLookup = @"core.library.lookup";
             failure([NSError errorWithDomain:@"Unable to add track" code:0 userInfo:nil]);
         }
     } failure:failure];
+}
+
+- (void)clearTracklist:(nullable SKErrorCallback)callback {
+    [self get:kApiTracklistClear parameters:nil success:^(id  _Nullable object) {
+        callback(nil);
+    } failure:callback];
 }
 
 #pragma mark - Playback
@@ -117,6 +125,13 @@ static NSString * const kApiLibraryLookup = @"core.library.lookup";
     } failure:callback];
 }
 
+- (void)getTimePosition:(nonnull SKTimeCallback)success failure:(nullable SKErrorCallback)failure {
+    [self get:kApiPlaybackTimePositionGet parameters:nil success:^(id  _Nullable object) {
+        int msec = [object intValue];
+        NSTimeInterval currentPosition = (float)msec / 1000;
+        success(currentPosition);
+    } failure:failure];
+}
 
 #pragma mark - Library
 

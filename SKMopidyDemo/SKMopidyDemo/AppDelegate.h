@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@import SKMopidy;
+#import <SKMopidy/SKMopidy.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

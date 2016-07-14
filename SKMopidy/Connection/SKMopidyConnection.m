@@ -40,7 +40,7 @@
     _socket.delegate = self;
     [_socket setDelegateDispatchQueue:dispatch_queue_create("com.github.skchen.SKMopidyConnection.socket", NULL)];
     
-    _requestId = 0;
+    _requestId = 1;
     
     _pendingReuqests = [[NSMutableDictionary alloc] init];
     
@@ -63,7 +63,7 @@
     
     NSData *json = [request requestData];
     if(json) {
-        [_socket sendData:json];
+        [_socket send:json];
         [_pendingReuqests setObject:request forKey:@(id)];
         [request await];
     } else {
@@ -87,7 +87,7 @@
     
     NSData *json = [request requestData];
     if(json) {
-        [_socket sendData:json];
+        [_socket send:json];
         [_pendingReuqests setObject:request forKey:@(id)];
     } else {
         failure([NSError errorWithDomain:@"Unable to generate request" code:0 userInfo:nil]);

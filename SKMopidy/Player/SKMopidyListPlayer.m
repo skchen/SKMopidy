@@ -16,16 +16,20 @@
 
 @interface SKMopidyListPlayer () <SKPlayerDelegate, SKMopidyConnectionDelegate, SKMopidyPlayerDelegate>
 
+@property(nonatomic, strong, readonly, nonnull) SKPlayer *innerPlayer;
+
 @end
 
 @implementation SKMopidyListPlayer
 
 - (nonnull instancetype)initWithConnection:(nonnull SKMopidyConnection *)connection {
+    
     SKMopidyPlayer *innerPlayer = [[SKMopidyPlayer alloc] initWithConnection:connection];
     innerPlayer.delegate = self;
     innerPlayer.mopidyDelegate = self;
     
-    self = [super initWithPlayer:innerPlayer];
+    _innerPlayer = innerPlayer;
+    _innerPlayer.delegate = self;
     
     _connection = connection;
     _connection.delegate = self;
@@ -35,12 +39,6 @@
     }
     
     return self;
-}
-
-#pragma mark - Property
-
-- (id)current {
-    return _innerPlayer.current;
 }
 
 #pragma mark - Protected
@@ -65,7 +63,8 @@
 - (void)updatePlaylist:(nullable SKErrorCallback)callback {
     [_connection getTracklist:^(NSArray * _Nullable list) {
         _source = list;
-        id current = [self current];
+        
+        id current = [list objectAtIndex:_index];
         
         if(_source && current) {
             _index = [_source indexOfObject:current];
@@ -81,9 +80,9 @@
 
 #pragma mark - SKPlayerDelegate
 
-- (void)player:(SKPlayer *)player didChangeState:(SKPlayerState)newState {
-    if([_delegate respondsToSelector:@selector(player:didChangeState:)]) {
-        [_delegate player:self didChangeState:newState];
+- (void)playerDidChangeState:(SKPlayer *)player {
+    if([_delegate respondsToSelector:@selector(playerDidChangeState:)]) {
+        [self playerDidChangeState:self];
     }
 }
 

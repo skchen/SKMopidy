@@ -23,7 +23,8 @@ static NSString const * kKeyRefUri = @"uri";
     NSString *model = [dictionary objectForKey:kKeyModel];
     if(model) {
         NSString *className = [NSString stringWithFormat:@"%@%@", kModelPrefix, model];
-        return [[NSClassFromString(className) alloc] initWithDictionary:dictionary];
+        Class class = NSClassFromString(className);
+        return [[class alloc] initWithDictionary:dictionary];
     }
     
     return nil;
@@ -31,11 +32,15 @@ static NSString const * kKeyRefUri = @"uri";
 
 + (nullable id)format:(nonnull id)original {
     if([original isKindOfClass:[NSDictionary class]]) {
-        return [SKMopidyModel modelWithDictionary:original];
+        id formated = [SKMopidyModel modelWithDictionary:original];
+        return formated;
     } else if([original isKindOfClass:[NSArray class]]) {
         NSMutableArray *formatedArray = [[NSMutableArray alloc] init];
         for(id element in original) {
-            [formatedArray addObject:[SKMopidyModel format:element]];
+            id formated = [SKMopidyModel format:element];
+            if(formated) {
+                [formatedArray addObject:formated];
+            }
         }
         return formatedArray;
     } else if([original isKindOfClass:[NSNull class]]) {

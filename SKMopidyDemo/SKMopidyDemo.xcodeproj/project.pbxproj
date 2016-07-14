@@ -16,6 +16,7 @@
 		8234116D1CCB41810025A14F /* SKMopidyPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8234116B1CCB41810025A14F /* SKMopidyPlayerViewController.m */; };
 		823411791CCB430A0025A14F /* SKUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823411781CCB430A0025A14F /* SKUtils.framework */; };
 		8234117C1CCB444F0025A14F /* SKMopidy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8234117B1CCB444F0025A14F /* SKMopidy.framework */; };
+		82DCB46E1D37C20400AA8803 /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82DCB46D1D37C20400AA8803 /* SocketRocket.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		8234116B1CCB41810025A14F /* SKMopidyPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMopidyPlayerViewController.m; sourceTree = "<group>"; };
 		823411781CCB430A0025A14F /* SKUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKUtils.framework; path = ../../../Carthage/Build/iOS/SKUtils.framework; sourceTree = "<group>"; };
 		8234117B1CCB444F0025A14F /* SKMopidy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKMopidy.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/SKMopidyDemo-favddnhxwxtoplevtrynwiqouyzt/Build/Products/Debug-iphonesimulator/SKMopidy.framework"; sourceTree = "<group>"; };
+		82DCB46D1D37C20400AA8803 /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = ../../../Carthage/Build/iOS/SocketRocket.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8234117C1CCB444F0025A14F /* SKMopidy.framework in Frameworks */,
+				82DCB46E1D37C20400AA8803 /* SocketRocket.framework in Frameworks */,
 				823411791CCB430A0025A14F /* SKUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +123,7 @@
 			children = (
 				8234117B1CCB444F0025A14F /* SKMopidy.framework */,
 				823411781CCB430A0025A14F /* SKUtils.framework */,
+				82DCB46D1D37C20400AA8803 /* SocketRocket.framework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -134,7 +138,7 @@
 				8234113B1CCB40290025A14F /* Sources */,
 				8234113C1CCB40290025A14F /* Frameworks */,
 				8234113D1CCB40290025A14F /* Resources */,
-				8234117A1CCB43150025A14F /* ShellScript */,
+				82DCB46C1D37C0F900AA8803 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -191,13 +195,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8234117A1CCB43150025A14F /* ShellScript */ = {
+		82DCB46C1D37C0F900AA8803 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/../Carthage/Build/iOS/SKUtils.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/SocketRocket.framework",
 			);
 			outputPaths = (
 			);
@@ -328,10 +332,12 @@
 		823411571CCB40290025A14F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = SKMopidyDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKMopidyDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -340,10 +346,12 @@
 		823411581CCB40290025A14F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = SKMopidyDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.skchen.SKMopidyDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
