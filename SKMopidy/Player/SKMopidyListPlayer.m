@@ -16,8 +16,6 @@
 
 @interface SKMopidyListPlayer () <SKPlayerDelegate, SKMopidyConnectionDelegate, SKMopidyPlayerDelegate>
 
-@property(nonatomic, strong, readonly, nonnull) SKPlayer *innerPlayer;
-
 @end
 
 @implementation SKMopidyListPlayer
@@ -64,7 +62,7 @@
     [_connection getTracklist:^(NSArray * _Nullable list) {
         _source = list;
         
-        id current = [list objectAtIndex:_index];
+        id current = _innerPlayer.source;
         
         if(_source && current) {
             _index = [_source indexOfObject:current];
@@ -82,7 +80,7 @@
 
 - (void)playerDidChangeState:(SKPlayer *)player {
     if([_delegate respondsToSelector:@selector(playerDidChangeState:)]) {
-        [self playerDidChangeState:self];
+        [_delegate playerDidChangeState:self];
     }
 }
 

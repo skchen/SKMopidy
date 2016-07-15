@@ -12,7 +12,7 @@
 
 @class SKMopidyRef;
 
-@interface SKMopidyPlayerViewController : SKPlayerViewController
+@interface SKMopidyPlayerViewController : SKListPlayerViewController
 
 @property(nonatomic, strong, nullable) SKMopidyRef *ref;
 

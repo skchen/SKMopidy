@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) SKMopidyConnection *connection;
-@property (nonatomic, strong) SKMopidyPlayer *player;
+@property (nonatomic, strong) SKMopidyListPlayer *player;
 
 @end
 

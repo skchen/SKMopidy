@@ -8,10 +8,11 @@
 
 #import <SKUtils/SKUtils.h>
 
-@class SKMopidyConnection;
-@protocol SKMopidyPlayerDelegate;
+#import "SKMopidyPlayer.h"
 
-@interface SKMopidyListPlayer : SKListPlayer
+@class SKMopidyConnection;
+
+@interface SKMopidyListPlayer : SKNestedListPlayer
 
 @property(nonatomic, weak, nullable) id<SKMopidyPlayerDelegate> mopidyDelegate;
 

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-static NSString const * kMopidyIp = @"192.168.36.212";
+static NSString const * kMopidyIp = @"192.168.2.79";
 static const int kMopidyPort = 6680;
 
 @interface AppDelegate () <SKMopidyConnectionDelegate>
@@ -54,7 +54,7 @@ static const int kMopidyPort = 6680;
 - (void)mopidyDidConnected:(nonnull SKMopidyConnection *)connection {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"sessionUpdated" object:self];
     
-    _player = [[SKMopidyPlayer alloc] initWithConnection:_connection];
+    _player = [[SKMopidyListPlayer alloc] initWithConnection:_connection];
 }
 
 - (void)mopidy:(nonnull SKMopidyConnection *)connection failToConnect:(nonnull NSError *)error {
