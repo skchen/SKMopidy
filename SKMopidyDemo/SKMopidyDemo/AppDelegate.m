@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-static NSString const * kMopidyIp = @"192.168.2.79";
+static NSString const * kMopidyIp = @"192.168.36.212";
 static const int kMopidyPort = 6680;
 
 @interface AppDelegate () <SKMopidyConnectionDelegate>

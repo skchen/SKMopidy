@@ -126,7 +126,6 @@
 				8234113B1CCB40290025A14F /* Sources */,
 				8234113C1CCB40290025A14F /* Frameworks */,
 				8234113D1CCB40290025A14F /* Resources */,
-				82DCB46C1D37C0F900AA8803 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -181,23 +180,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		82DCB46C1D37C0F900AA8803 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/../Carthage/Build/iOS/SocketRocket.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8234113B1CCB40290025A14F /* Sources */ = {
